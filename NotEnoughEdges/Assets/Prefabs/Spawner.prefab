@@ -54,10 +54,14 @@ MonoBehaviour:
   enemyList:
   - {fileID: 1332575833577548, guid: f890011129106c545bf46bd7b42d9180, type: 2}
   - {fileID: 1189390911798084, guid: d579a76dc6748264d92e5242eed26017, type: 2}
+  - {fileID: 1386888559371334, guid: 21b97e09117138b48b1e905cd1325d1c, type: 2}
   - {fileID: 1679077246869132, guid: 696301b9ad171954586a9986c926e331, type: 2}
+  - {fileID: 1227201131281188, guid: cf72b6ee9b59a1a44906411782969b3d, type: 2}
   probList:
-  - 0.5
-  - 0.3
+  - 0.4
+  - 0.24
+  - 0.04
   - 0.2
-  rate: 20
-  range: {x: -10, y: 10}
+  - 0.12
+  rate: 60
+  range: {x: -1, y: 1}

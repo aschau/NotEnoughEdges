@@ -8,9 +8,15 @@ public class Spawner : MonoBehaviour {
     public float rate;
     public Vector2 range;
     private float timer = 0.0f;
+    private GameObject player;
 
-	// Use this for initialization
-	void Start ()
+    private void Awake()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
+
+    // Use this for initialization
+    void Start ()
     {
 
     }
@@ -18,6 +24,9 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (player.transform.position.y - transform.position.y < 10)
+            transform.position = new Vector3(transform.position.x, player.transform.position.y - 10, transform.position.z);
+
         timer += Time.deltaTime;
         
         if (timer >= 60/rate)
