@@ -8,8 +8,6 @@ public class Timer : MonoBehaviour
 {
     private float currentTime = 0f; //in seconds
     private Text textTimer;
-    public bool paused = false;
-
 
     // Use this for initialization
     void Start()
@@ -20,7 +18,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!paused)
+        if (!SceneControl.paused)
         {
             currentTime += Time.deltaTime;
             textTimer.text = parseTime(currentTime);
