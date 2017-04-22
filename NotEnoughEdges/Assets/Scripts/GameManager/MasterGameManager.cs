@@ -5,6 +5,7 @@ using UnityEngine;
 public class MasterGameManager : MonoBehaviour {
     public static MasterGameManager instance;
 
+    public AudioManager audioManager;
     public SceneManagerWrapper sceneManager;
     public PauseManager pauseManager;
 

@@ -48,10 +48,4 @@ public class EdgeMaker : MonoBehaviour
     {
         return (Vector3) v;
     }
-
-    void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Line Hazard"))
-            Destroy(gameObject);
-    }
 }
