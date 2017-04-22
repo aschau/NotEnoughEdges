@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class StillHazard : MonoBehaviour {
     private GameObject theTarget;
-    public float stillTimer;
+    public GameObject projectile;
+    public float stillTime;
     public float fireRate;
+    private float stillTimer = 0.0f;
+    private bool isClose = false;
+    private float fireTimer = 0.0f;
 
     void Awake()
     {
@@ -21,6 +25,23 @@ public class StillHazard : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-		
+        if (theTarget.transform.position.y - transform.position.y < 3)
+            isClose = true;
+
+        if (stillTimer < stillTime && isClose)
+        {
+            stillTimer += Time.deltaTime;
+
+            if (theTarget.transform.position.y - transform.position.y < 3)
+                transform.position = new Vector3(transform.position.x, theTarget.transform.position.y - 3, transform.position.z);
+
+            fireTimer += Time.deltaTime;
+
+            if (fireTimer > 1/fireRate)
+            {
+                fireTimer = 0;
+                Instantiate(projectile, transform.position + Vector3.up * 0.1f, Quaternion.identity);
+            }
+        }
 	}
 }
