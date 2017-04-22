@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     private GameObject theTarget;
-    private Hazard _hazard;
+    public float projectileSpeed;
 
     void Awake()
     {
@@ -15,7 +15,6 @@ public class Projectile : MonoBehaviour {
     void Start ()
     {
         theTarget = GameObject.FindWithTag("Player");
-        _hazard = GetComponent<Hazard>();
 
         transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position);
 	}
@@ -23,6 +22,6 @@ public class Projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        transform.Translate(Vector3.up * Time.deltaTime * _hazard.speed);
+        transform.Translate(Vector3.up * Time.deltaTime * projectileSpeed);
 	}
 }
