@@ -31,6 +31,9 @@ public class Projectile : MonoBehaviour {
 
     void OnCollisionEnter2D (Collision2D col)
     {
+        if (col.gameObject.layer == LayerMask.NameToLayer("Drawing"))
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1);
+
         Destroy(gameObject);
     }
 }
