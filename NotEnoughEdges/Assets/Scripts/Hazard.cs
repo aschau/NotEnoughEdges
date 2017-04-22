@@ -17,7 +17,7 @@ public class Hazard : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        transform.Translate(0, speed * Time.deltaTime, 0);
+        transform.Translate(Vector3.up * Time.deltaTime * speed);
 
         if (transform.position.y > upperBound)
             Destroy(gameObject);

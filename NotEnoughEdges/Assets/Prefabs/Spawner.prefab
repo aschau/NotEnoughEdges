@@ -52,10 +52,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList:
-  - {fileID: 1189390911798084, guid: d579a76dc6748264d92e5242eed26017, type: 2}
   - {fileID: 1332575833577548, guid: f890011129106c545bf46bd7b42d9180, type: 2}
+  - {fileID: 1189390911798084, guid: d579a76dc6748264d92e5242eed26017, type: 2}
+  - {fileID: 1679077246869132, guid: 696301b9ad171954586a9986c926e331, type: 2}
   probList:
+  - 0.5
+  - 0.3
   - 0.2
-  - 0.8
-  rate: 1
-  range: {x: 0, y: 0}
+  rate: 20
+  range: {x: -10, y: 10}
