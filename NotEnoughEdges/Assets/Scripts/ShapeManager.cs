@@ -45,6 +45,7 @@ public class ShapeManager : MonoBehaviour
         if (tempNum >= 15) //Win the game, insert winning edge number here
         {
             Debug.Log("You won! :D");
+            edgeNum = 15;
         }
         else
         {
@@ -56,9 +57,10 @@ public class ShapeManager : MonoBehaviour
     {
         int tempNum = edgeNum - amount;
 
-        if (tempNum <= 3) //Lose the game
+        if (tempNum < 3) //Lose the game
         {
             Debug.Log("You lost. :(");
+            edgeNum = 3;
         }
         else
         {
