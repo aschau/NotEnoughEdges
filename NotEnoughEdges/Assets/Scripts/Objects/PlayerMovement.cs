@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         for (float timeElapsed = 0f; timeElapsed <= time; timeElapsed += Time.deltaTime)
         {
-            float fragment = timeElapsed / (blinkInterval * 2);
+            float fragment = timeElapsed % (blinkInterval * 2);
             if (fragment < blinkInterval)
                 _spriteRenderer.color = Color.clear;
             else

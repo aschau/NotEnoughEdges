@@ -327,7 +327,7 @@ MonoBehaviour:
   focusAreaSize: {x: 2, y: 2}
   verticalOffset: 0
   verticalSmoothTime: 0
-  showFocusArea: 1
+  showFocusArea: 0
 --- !u!81 &1219477815
 AudioListener:
   m_ObjectHideFlags: 0
