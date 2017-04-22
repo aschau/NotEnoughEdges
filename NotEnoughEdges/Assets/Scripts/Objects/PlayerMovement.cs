@@ -6,7 +6,6 @@ public class PlayerMovement : MonoBehaviour {
     public float speed;
     public float size;
     public float bounce;
-    public int health;
     private Rigidbody2D _rigidbody;
     public float invincibleTime;
     private float invincibleTimer = 0.0f;
@@ -28,16 +27,15 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (health <= 0)
-            Destroy(gameObject);
-
-        if (invincibleTimer > 0)
+        if (invincibleTimer > 0) // Invulnerability frames
         {
-            invincibleTimer -= Time.deltaTime;
-            Helper.phaseThruTags(gameObject, new List<string> { "Hazard" });
+            invincibleTimer -= Time.deltaTime;   
         }
 
-        if (_rigidbody.velocity.y < terminalVelocity * -1)
+        if (invincibleTimer <= 0 && LayerMask.LayerToName(gameObject.layer) == "Invulnerable")
+            gameObject.layer = LayerMask.NameToLayer("Default");
+
+        if (_rigidbody.velocity.y < terminalVelocity * -1) // 
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, terminalVelocity * -1);
 	}
 
@@ -46,6 +44,7 @@ public class PlayerMovement : MonoBehaviour {
         if (col.gameObject.CompareTag("Hazard"))
         {
             invincibleTimer = invincibleTime;
+            gameObject.layer = LayerMask.NameToLayer("Invulnerable");
 
             Hazard colHazard = col.gameObject.GetComponent<Hazard>();
             ShapeManager sm = GetComponent<ShapeManager>();
