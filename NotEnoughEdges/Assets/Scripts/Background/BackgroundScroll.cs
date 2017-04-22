@@ -3,14 +3,14 @@ using System.Collections;
 
 public class BackgroundScroll : MonoBehaviour
 {
-    private MeshRenderer background1, background2;
+    private BoxCollider2D background1, background2;
     private GameObject player;
 
     void Awake()
     {
         this.player = GameObject.FindGameObjectWithTag("Player");
-        this.background1 = GameObject.Find("Background 1").GetComponent<MeshRenderer>();
-        this.background2 = GameObject.Find("Background 2").GetComponent<MeshRenderer>();
+        this.background1 = GameObject.Find("Background 1").GetComponent<BoxCollider2D>();
+        this.background2 = GameObject.Find("Background 2").GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
