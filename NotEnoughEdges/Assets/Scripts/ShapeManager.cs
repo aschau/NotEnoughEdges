@@ -4,7 +4,7 @@ public class ShapeManager : MonoBehaviour
 {
     public float radius;
     private PolygonCollider2D col;
-    private int edges;
+    private int edges = 3;
     public int edgeNum
     {
         get
@@ -22,6 +22,7 @@ public class ShapeManager : MonoBehaviour
 	void Start ()
     {
         col = GetComponent<PolygonCollider2D>();
+        ChangeShape(edges);
 	}
 
     void ChangeShape (int vertNum)
