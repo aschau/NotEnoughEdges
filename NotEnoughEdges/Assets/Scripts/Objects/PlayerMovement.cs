@@ -8,14 +8,17 @@ public class PlayerMovement : MonoBehaviour {
     public float bounce;
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
+    private ShapeManager _shapemanager;
     public float invincibleTime;
     private float invincibleTimer = 0.0f;
     public float terminalVelocity;
+    public float deltaTerminal;
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _shapemanager = GetComponent<ShapeManager>();
     }
 
     // Use this for initialization
@@ -34,10 +37,10 @@ public class PlayerMovement : MonoBehaviour {
             invincibleTimer -= Time.deltaTime;   
         }
 
-        if (invincibleTimer <= 0 && LayerMask.LayerToName(gameObject.layer) == "Invulnerable")
+        if (invincibleTimer <= 0 && LayerMask.LayerToName(gameObject.layer) == "Invulnerable") // Lose invulnerability
             gameObject.layer = LayerMask.NameToLayer("Default");
 
-        if (_rigidbody.velocity.y < terminalVelocity * -1) // 
+        if (_rigidbody.velocity.y < (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal) * -1) // Enforce terminal velocity
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, terminalVelocity * -1);
 	}
 
@@ -45,18 +48,17 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (col.gameObject.CompareTag("Hazard"))
         {
-            invincibleTimer = invincibleTime;
+            invincibleTimer = invincibleTime; // Become invulnerable
             StartCoroutine(Blink(invincibleTime, 0.2f));
             gameObject.layer = LayerMask.NameToLayer("Invulnerable");
 
             Hazard colHazard = col.gameObject.GetComponent<Hazard>();
-            ShapeManager sm = GetComponent<ShapeManager>();
 
-            sm.LoseEdge(colHazard.damage);
+            _shapemanager.LoseEdge(colHazard.damage); // Lose edges
 
             _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
 
-            if (colHazard.ability == "Bounce")
+            if (colHazard.ability == "Bounce") // Bounce if hazard hit induces bounce
                 _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
         }
     }

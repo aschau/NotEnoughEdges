@@ -28,7 +28,7 @@ public class StillHazard : MonoBehaviour {
         if (theTarget.transform.position.y - transform.position.y < 3)
             isClose = true;
 
-        if (stillTimer < stillTime && isClose)
+        if (stillTimer < stillTime && isClose) // Hold position below player for a few seconds
         {
             stillTimer += Time.deltaTime;
 
@@ -37,7 +37,7 @@ public class StillHazard : MonoBehaviour {
 
             fireTimer += Time.deltaTime;
 
-            if (fireTimer > 1/fireRate)
+            if (fireTimer > 1/fireRate) // Fire projectile
             {
                 fireTimer = 0;
                 Instantiate(projectile, transform.position + Vector3.up * 0.8f, Quaternion.identity);

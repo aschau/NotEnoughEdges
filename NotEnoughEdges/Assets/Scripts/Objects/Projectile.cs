@@ -26,12 +26,12 @@ public class Projectile : MonoBehaviour {
 	void Update ()
     {
         transform.Translate(Vector3.up * Time.deltaTime * projectileSpeed);
-        transform.Translate(new Vector3(Mathf.Cos(transform.rotation.z * Mathf.PI/180) * playerRigidBody.velocity.y * 0.75f, 0, 0) * Time.deltaTime);
+        transform.Translate(new Vector3(Mathf.Cos(transform.rotation.z * Mathf.PI/180) * playerRigidBody.velocity.y * 0.75f, 0, 0) * Time.deltaTime); // Compensate for player falling
 	}
 
     void OnCollisionEnter2D (Collision2D col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Drawing"))
+        if (col.gameObject.layer == LayerMask.NameToLayer("Drawing")) // Bounce back if hits drawn line
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1);
 
         Destroy(gameObject);
