@@ -25,6 +25,14 @@ public class ShapeManager : MonoBehaviour
         ChangeShape(edges);
 	}
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            ChangeShape(++edges);
+        }
+    }
+
     void ChangeShape (int vertNum)
     {
         //int vertNum = 5;
