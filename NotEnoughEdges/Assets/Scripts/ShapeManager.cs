@@ -4,8 +4,9 @@ public class ShapeManager : MonoBehaviour
 {
     public float radius;
     private PolygonCollider2D col;
-    private int edges = 3;
-    public int edgeNum
+
+    private int edges = 3; //Do not use outside of edgeNum
+    public int edgeNum //Use this to get and set collider's shape
     {
         get
         {
@@ -16,26 +17,51 @@ public class ShapeManager : MonoBehaviour
             ChangeShape(value);
             edges = value;
         }
-    }
+    } 
+    
+    //public Sprite[] shapes;
+    //private SpriteRenderer currentShape
 
-	
-	void Start ()
+    void Start ()
     {
         col = GetComponent<PolygonCollider2D>();
-        ChangeShape(edges);
+        ChangeShape(edgeNum);
 	}
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            ChangeShape(++edges);
+            GainEdge();
+        }
+    }
+
+    public void GainEdge()
+    {
+        if (edgeNum == 15) //Win the game, insert winning edge number here
+        {
+            Debug.Log("You won! :D");
+        }
+        else
+        {
+            edgeNum++;
+        }
+    }
+
+    public void LoseEdge()
+    {
+        if (edgeNum == 3) //Lose the game
+        {
+            Debug.Log("You lost. :(");
+        }
+        else
+        {
+            edgeNum--;
         }
     }
 
     void ChangeShape (int vertNum)
     {
-        //int vertNum = 5;
         Vector2[] polyPoints = new Vector2[vertNum];
 
         float rot = (2 * Mathf.PI) / vertNum;
@@ -47,6 +73,8 @@ public class ShapeManager : MonoBehaviour
 
             polyPoints[i] = trigRot * radius;
         }
+
         col.points = polyPoints;
+        //currentShape.sprite = shapes[vertNum - 3];
     }
 }
