@@ -23,4 +23,17 @@ public class Helper {
         return result;
     }
 
+    public static void phaseThruTags (GameObject obj, List<string> tags)
+    {
+        Collider2D col = obj.GetComponent<Collider2D>();
+
+        foreach (string s in tags)
+        {
+            GameObject[] toPhaseThru = GameObject.FindGameObjectsWithTag(s);
+            
+            foreach (GameObject g in toPhaseThru)
+                Physics2D.IgnoreCollision(col, g.GetComponent<Collider2D>());
+        }
+    }
+
 }

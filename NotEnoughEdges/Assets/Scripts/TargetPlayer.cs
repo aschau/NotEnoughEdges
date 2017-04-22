@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TargetPlayer : MonoBehaviour {
-    private bool target = false;
+    private bool target = true;
     private GameObject theTarget;
 
     // Use this for initialization
@@ -17,9 +17,7 @@ public class TargetPlayer : MonoBehaviour {
 	void Update ()
     {
         if (target)
-            transform.rotation = Quaternion.LookRotation(gameObject.transform.position - theTarget.transform.position);
-        else
-            transform.rotation = Quaternion.identity;
+            transform.Translate(new Vector3(theTarget.transform.position.x - transform.position.x, 0, 0).normalized * 0.5f * Time.deltaTime);
 	}
 
     void OnCollisionEnter2D(Collision2D col)
