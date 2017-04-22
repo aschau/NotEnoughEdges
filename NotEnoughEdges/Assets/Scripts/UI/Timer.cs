@@ -18,7 +18,8 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!SceneControl.paused)
+        //if (!SceneControl.paused)
+        if (!MasterGameManager.instance.pauseManager.isPaused)
         {
             currentTime += Time.deltaTime;
             textTimer.text = parseTime(currentTime);

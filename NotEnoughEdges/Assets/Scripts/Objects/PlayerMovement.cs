@@ -68,6 +68,11 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+    void OnDestroy()
+    {
+        MasterGameManager.instance.pauseManager.onPause -= FreezeMovement;
+    }
+
     void FreezeMovement(bool isPaused)
     {
         if (isPaused)

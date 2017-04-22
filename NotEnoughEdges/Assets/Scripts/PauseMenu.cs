@@ -5,10 +5,16 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject pausePanel;
+    public GameObject settingsPanel;
 
-    public void EnablePanel(bool active)
+    public void EnablePausePanel(bool active)
     {
         pausePanel.SetActive(active);
+    }
+
+    public void EnableSettingsPanel(bool active)
+    {
+        settingsPanel.SetActive(active);
     }
 
     public void Continue()
@@ -19,5 +25,10 @@ public class PauseMenu : MonoBehaviour {
     public void Restart()
     {
         MasterGameManager.instance.sceneManager.ReloadScene();
+    }
+
+    public void Settings()
+    {
+        EnableSettingsPanel(true);
     }
 }
