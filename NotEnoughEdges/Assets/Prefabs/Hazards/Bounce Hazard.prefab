@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114401445658126782}
   - component: {fileID: 50953866524130418}
   - component: {fileID: 58006124436118400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bounce Hazard
   m_TagString: Hazard
   m_Icon: {fileID: 0}

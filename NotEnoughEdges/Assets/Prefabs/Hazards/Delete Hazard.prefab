@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114878537456139558}
   - component: {fileID: 50337075441593944}
   - component: {fileID: 58737631379036628}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Delete Hazard
   m_TagString: Hazard
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  damage: 0
+  damage: 1
   ability: Delete
 --- !u!212 &212722027831145088
 SpriteRenderer:

@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50026530366130800}
   - component: {fileID: 58622970637323068}
   - component: {fileID: 114789673103460998}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Shooting Hazard
   m_TagString: Hazard
   m_Icon: {fileID: 0}
