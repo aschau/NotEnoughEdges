@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour {
     public float bounce;
     public int health;
     private Rigidbody2D _rigidbody;
-    private bool isInvincible = false;
     public float invincibleTime;
     private float invincibleTimer = 0.0f;
     public float terminalVelocity;
