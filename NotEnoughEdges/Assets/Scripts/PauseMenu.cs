@@ -11,8 +11,13 @@ public class PauseMenu : MonoBehaviour {
         pausePanel.SetActive(active);
     }
 
-    public void Resume()
+    public void Continue()
     {
         MasterGameManager.instance.pauseManager.EnablePause(false);
+    }
+
+    public void Restart()
+    {
+        MasterGameManager.instance.sceneManager.ReloadScene();
     }
 }

@@ -24,4 +24,9 @@ public class SceneManagerWrapper : MonoBehaviour {
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(currentScene);
+    }
 }
