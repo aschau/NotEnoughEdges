@@ -70,8 +70,8 @@ public class ShapeManager : MonoBehaviour
 
     void ChangeShape (int vertNum)
     {
-        Vector2[] polyPoints = new Vector2[vertNum];
-
+        /*Vector2[] polyPoints = new Vector2[vertNum];
+        
         float rot = (2 * Mathf.PI) / vertNum; //Get the rotation between each point
 
         for (int i = 0; i < vertNum; i++) //Get the coordinates for each point
@@ -81,14 +81,10 @@ public class ShapeManager : MonoBehaviour
 
             polyPoints[i] = trigRot * radius;
         }
-
+        
         //Make the shape
         col.points = polyPoints;
-        if (vertNum - 3 < shapes.Length)
-        {
-            currentShape.sprite = shapes[vertNum - 3];
-        }
-
+        
         //Set offset for every odd edgeNum
         //If don't set offset then col and sprite won't line up.
         col.offset = Vector3.zero;
@@ -96,6 +92,13 @@ public class ShapeManager : MonoBehaviour
         {
             //Debug.Log("Center of " + edgeNum + "= " + col.transform.InverseTransformPoint(col.bounds.center));
             col.offset = -col.transform.InverseTransformPoint(col.bounds.center);
+        }*/
+
+        if (vertNum - 3 < shapes.Length)
+        {
+            currentShape.sprite = shapes[vertNum - 3];
         }
+        Destroy(col);
+        col = gameObject.AddComponent<PolygonCollider2D>();
     }
 }
