@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         if (invincibleTimer <= 0 && LayerMask.LayerToName(gameObject.layer) == "Invulnerable") // Lose invulnerability
             gameObject.layer = LayerMask.NameToLayer("Default");
 
-        if (_rigidbody.velocity.y < (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal) * -1) // Enforce terminal velocity
+        if (_rigidbody.velocity.y < (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal) * -1)) // Enforce terminal velocity
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, terminalVelocity * -1);
 	}
 
