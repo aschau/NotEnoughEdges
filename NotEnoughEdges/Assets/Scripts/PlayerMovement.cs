@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     public float speed;
     public float size;
-    public double bounce;
+    public float bounce;
     public int health;
 
 	// Use this for initialization
@@ -26,6 +26,13 @@ public class PlayerMovement : MonoBehaviour {
     void OnCollisionEnter2D (Collision2D col)
     {
         if (col.gameObject.CompareTag("Hazard"))
+        {
             health -= col.gameObject.GetComponent<Hazard>().damage;
+
+            GetComponent<Rigidbody2D>().AddForce((transform.position - col.transform.position).normalized * bounce);
+
+            if (col.gameObject.GetComponent<Hazard>().ability == "Bounce")
+                GetComponent<Rigidbody2D>().AddForce((transform.position - col.transform.position).normalized * bounce * 2);
+        }
     }
 }
