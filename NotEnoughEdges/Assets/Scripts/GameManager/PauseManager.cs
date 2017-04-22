@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class PauseManager : MonoBehaviour {
 
+    public delegate void OnPause(bool isPaused);
+    public event OnPause onPause = delegate { };
+
     public bool isPaused = false;
+
     PauseMenu pauseMenu;
 
     void Awake()
@@ -14,7 +18,8 @@ public class PauseManager : MonoBehaviour {
 
     void OnSceneLoaded()
     {
-        pauseMenu = GameObject.Find("PauseMenu").GetComponent<PauseMenu>();
+        pauseMenu = GameObject.Find("Pause Menu").GetComponent<PauseMenu>();
+        isPaused = false;
     }
 
     void Update()
@@ -27,13 +32,13 @@ public class PauseManager : MonoBehaviour {
 
     public void EnablePause(bool active)
     {
-        Time.timeScale = active ? 0 : 1;
-
         if (pauseMenu != null)
         {
-            pauseMenu.EnablePanel(active);
+            pauseMenu.EnablePausePanel(active);
         }
 
         isPaused = active;
+
+        onPause(active);
     }
 }

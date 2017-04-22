@@ -6,13 +6,16 @@ public class PlayerMovement : MonoBehaviour {
     public float speed;
     public float size;
     public float bounce;
+    public float invincibleTime;
+    public float terminalVelocity;
+    public float deltaTerminal;
+
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
     private ShapeManager _shapemanager;
-    public float invincibleTime;
     private float invincibleTimer = 0.0f;
-    public float terminalVelocity;
-    public float deltaTerminal;
+    private Vector2 originalVelocity;
+    private float originalAngularVelocity;
 
     void Awake()
     {
@@ -27,6 +30,8 @@ public class PlayerMovement : MonoBehaviour {
         transform.localScale = new Vector3(size, size, size);
 
         _rigidbody.gravityScale = speed;
+
+        MasterGameManager.instance.pauseManager.onPause += FreezeMovement;
 	}
 	
 	// Update is called once per frame
@@ -40,7 +45,7 @@ public class PlayerMovement : MonoBehaviour {
         if (invincibleTimer <= 0 && LayerMask.LayerToName(gameObject.layer) == "Invulnerable") // Lose invulnerability
             gameObject.layer = LayerMask.NameToLayer("Default");
 
-        if (_rigidbody.velocity.y < (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal) * -1)) // Enforce terminal velocity
+        if (_rigidbody.velocity.y < (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal)) * -1) // Enforce terminal velocity
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, terminalVelocity * -1);
 	}
 
@@ -60,6 +65,30 @@ public class PlayerMovement : MonoBehaviour {
 
             if (colHazard.ability == "Bounce") // Bounce if hazard hit induces bounce
                 _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
+        }
+    }
+
+    void OnDestroy()
+    {
+        MasterGameManager.instance.pauseManager.onPause -= FreezeMovement;
+    }
+
+    void FreezeMovement(bool isPaused)
+    {
+        if (isPaused)
+        {
+            this.originalVelocity = this._rigidbody.velocity;
+            this.originalAngularVelocity = this._rigidbody.angularVelocity;
+            this._rigidbody.isKinematic = true;
+            this._rigidbody.velocity = Vector2.zero;
+            this._rigidbody.angularVelocity = 0;
+        }
+
+        else
+        {
+            this._rigidbody.isKinematic = false;
+            this._rigidbody.velocity = this.originalVelocity;
+            this._rigidbody.angularVelocity = this.originalAngularVelocity;
         }
     }
 
