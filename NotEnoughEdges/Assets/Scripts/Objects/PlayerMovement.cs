@@ -50,8 +50,7 @@ public class PlayerMovement : MonoBehaviour {
             Hazard colHazard = col.gameObject.GetComponent<Hazard>();
             ShapeManager sm = GetComponent<ShapeManager>();
 
-            for (int i = 0; i < colHazard.damage; ++i)
-                sm.LoseEdge();
+            sm.LoseEdge(colHazard.damage);
 
             _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
 

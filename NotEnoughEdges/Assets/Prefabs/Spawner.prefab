@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4828394226093632}
   - component: {fileID: 114644800765501588}
+  - component: {fileID: 114135380758816486}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Other
@@ -40,6 +41,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114135380758816486
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418392324649498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12f0f80c4d3902940aa1ee96d379358c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifespan: 10
 --- !u!114 &114644800765501588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -63,5 +76,5 @@ MonoBehaviour:
   - 0.04
   - 0.2
   - 0.12
-  rate: 60
+  rate: 10
   range: {x: -1, y: 1}
