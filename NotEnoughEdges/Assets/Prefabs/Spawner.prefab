@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4828394226093632}
   - component: {fileID: 114644800765501588}
-  - component: {fileID: 114135380758816486}
   m_Layer: 11
   m_Name: Spawner
   m_TagString: Other
@@ -41,18 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114135380758816486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1418392324649498}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12f0f80c4d3902940aa1ee96d379358c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifespan: 10
 --- !u!114 &114644800765501588
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,12 +58,15 @@ MonoBehaviour:
   - {fileID: 1679077246869132, guid: 696301b9ad171954586a9986c926e331, type: 2}
   - {fileID: 1227201131281188, guid: cf72b6ee9b59a1a44906411782969b3d, type: 2}
   - {fileID: 1951667939892700, guid: 852e4cf209f2afd4c80874c3f542f5f9, type: 2}
+  - {fileID: 1303461748787158, guid: 11719ee71637ca9438e3267fafc1776d, type: 2}
   probList:
-  - 0.4
-  - 0.24
-  - 0.04
+  - 1
+  - 0.5
   - 0.2
-  - 0.12
-  - 0.02
+  - 0.7
+  - 0.35
+  - 0.8
+  - 0.05
   rate: 10
-  range: {x: -1, y: 1}
+  deltaRate: 0.5
+  range: {x: -5, y: 5}

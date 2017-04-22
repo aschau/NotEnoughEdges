@@ -105,9 +105,9 @@ MonoBehaviour:
   speed: 0.1
   size: 1
   bounce: 50
-  health: 2
   invincibleTime: 2
   terminalVelocity: 6
+  deltaTerminal: 1
 --- !u!114 &114602697204819200
 MonoBehaviour:
   m_ObjectHideFlags: 1

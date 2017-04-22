@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 68413864074042456}
   - component: {fileID: 120991152857265870}
   - component: {fileID: 114858793352559246}
+  - component: {fileID: 114819241675210352}
   m_Layer: 10
   m_Name: Drawn Edge
   m_TagString: Untagged
@@ -59,6 +60,17 @@ EdgeCollider2D:
   m_Points:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
+--- !u!114 &114819241675210352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1831046727105646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d51d67a6af2e7cd459ec6d6af9e3d21f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114858793352559246
 MonoBehaviour:
   m_ObjectHideFlags: 1
