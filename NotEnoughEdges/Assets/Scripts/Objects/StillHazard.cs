@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class StillHazard : MonoBehaviour {
     private GameObject theTarget;
-
+    public float stillTimer;
+    public float fireRate;
 
     void Awake()
     {
-        theTarget = GameObject.FindWithTag("")
+        theTarget = GameObject.FindWithTag("Player");
     }
 
     // Use this for initialization
