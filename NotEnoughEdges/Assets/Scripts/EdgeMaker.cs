@@ -23,6 +23,16 @@ public class EdgeMaker : MonoBehaviour
             currentPoints[0] = GetMousePos();
             //Debug.Log(currentEdge.points[0]);
         }
+        if (Input.GetMouseButton(0))
+        {
+            //Debug.Log(GetMousePos());
+            //Debug.Log(currentEdge.points[1]);
+            currentPoints[1] = GetMousePos();
+            //Debug.Log(currentEdge.points[1]);
+            
+            Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2,Vector3>(currentPoints, Vector2to3);
+            currentEdge.GetComponent<LineRenderer>().SetPositions(currentPointsV3);
+        }
         if (Input.GetMouseButtonUp(0))
         {
             //Debug.Log(GetMousePos());
@@ -37,5 +47,10 @@ public class EdgeMaker : MonoBehaviour
     Vector2 GetMousePos()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    Vector3 Vector2to3 (Vector2 v)
+    {
+        return (Vector3) v;
     }
 }
