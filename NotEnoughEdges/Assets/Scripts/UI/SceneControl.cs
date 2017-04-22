@@ -32,6 +32,10 @@ public class SceneControl : MonoBehaviour {
     {
         paused = !paused;
         this.pauseMenu.SetActive(!this.pauseMenu.activeSelf);
+        if (!this.pauseMenu.activeSelf)
+        {
+            this.settingsMenu.SetActive(false);
+        }
 
         if (paused)
         {
