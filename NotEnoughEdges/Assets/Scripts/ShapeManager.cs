@@ -34,31 +34,35 @@ public class ShapeManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            GainEdge();
+            GainEdge(1);
         }
     }
 
-    public void GainEdge()
+    public void GainEdge(int amount)
     {
-        if (edgeNum == 15) //Win the game, insert winning edge number here
+        int tempNum = edgeNum + amount;
+
+        if (tempNum >= 15) //Win the game, insert winning edge number here
         {
             Debug.Log("You won! :D");
         }
         else
         {
-            edgeNum++;
+            edgeNum = tempNum;
         }
     }
 
-    public void LoseEdge()
+    public void LoseEdge(int amount)
     {
-        if (edgeNum == 3) //Lose the game
+        int tempNum = edgeNum - amount;
+
+        if (tempNum <= 3) //Lose the game
         {
             Debug.Log("You lost. :(");
         }
         else
         {
-            edgeNum--;
+            edgeNum = tempNum;
         }
     }
 
