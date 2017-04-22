@@ -14,18 +14,20 @@ public class ShapeManager : MonoBehaviour
         }
         set
         {
-            ChangeShape(value);
             edges = value;
+            ChangeShape(value);
         }
     } 
     
-    //public Sprite[] shapes;
-    //private SpriteRenderer currentShape
+    public Sprite[] shapes;
+    private SpriteRenderer currentShape;
 
     void Start ()
     {
         col = GetComponent<PolygonCollider2D>();
-        ChangeShape(edgeNum);
+        currentShape = GetComponent<SpriteRenderer>();
+
+        edgeNum = edgeNum;
 	}
 
     void Update()
@@ -64,9 +66,9 @@ public class ShapeManager : MonoBehaviour
     {
         Vector2[] polyPoints = new Vector2[vertNum];
 
-        float rot = (2 * Mathf.PI) / vertNum;
+        float rot = (2 * Mathf.PI) / vertNum; //Get the rotation between each point
 
-        for (int i = 0; i < vertNum; i++)
+        for (int i = 0; i < vertNum; i++) //Get the coordinates for each point
         {
             float totalRot = (rot * i) + (Mathf.PI / 2);
             Vector2 trigRot = new Vector2(Mathf.Cos(totalRot) / transform.localScale.x, Mathf.Sin(totalRot) / transform.localScale.y);
@@ -74,7 +76,20 @@ public class ShapeManager : MonoBehaviour
             polyPoints[i] = trigRot * radius;
         }
 
+        //Make the shape
         col.points = polyPoints;
-        //currentShape.sprite = shapes[vertNum - 3];
+        if (vertNum - 3 < shapes.Length)
+        {
+            currentShape.sprite = shapes[vertNum - 3];
+        }
+
+        //Set offset for every odd edgeNum
+        //If don't set offset then col and sprite won't line up.
+        col.offset = Vector3.zero;
+        if (edgeNum % 2 == 1)
+        {
+            //Debug.Log("Center of " + edgeNum + "= " + col.transform.InverseTransformPoint(col.bounds.center));
+            col.offset = -col.transform.InverseTransformPoint(col.bounds.center);
+        }
     }
 }
