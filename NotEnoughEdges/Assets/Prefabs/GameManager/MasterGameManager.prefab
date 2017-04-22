@@ -20,8 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4798819004082574}
   - component: {fileID: 114290981403765864}
+  - component: {fileID: 114805931408272838}
+  - component: {fileID: 114498423771518336}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: MasterGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,3 +53,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a917bff21b7134e4785e802153fe3efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneManager: {fileID: 114805931408272838}
+  pauseManager: {fileID: 114498423771518336}
+--- !u!114 &114498423771518336
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422777826411170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1404bde9f47655747b21b07229f74892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPaused: 0
+--- !u!114 &114805931408272838
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422777826411170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51ebbd2fb79ae904bb4af77a343b775c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentScene: 

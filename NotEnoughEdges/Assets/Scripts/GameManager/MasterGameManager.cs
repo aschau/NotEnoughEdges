@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour {
-    public static GameManager instance;
+public class MasterGameManager : MonoBehaviour {
+    public static MasterGameManager instance;
+
+    public SceneManagerWrapper sceneManager;
+    public PauseManager pauseManager;
 
     void Awake()
     {

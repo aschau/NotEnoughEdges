@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 14e8d90580dc22e4baad0edd26bf622a
+timeCreated: 1492890883
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Unquiet Spirits
+  fontNames:
+  - Unquiet Spirits
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
