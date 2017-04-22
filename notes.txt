@@ -1,0 +1,12 @@
+bouncing ball
+draw edges to bounce off of
+start as a triangle
+collect other shapes to add more edge
+start as a heart, then heartbreak to a triangle
+possibly change your shape
+
+endless vertical faller
+draw edges to navigate
+avoid hazards
+collect shapes
+lose edges when damaged
