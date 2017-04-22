@@ -14,8 +14,8 @@ public class PlayerMovement : MonoBehaviour {
     private SpriteRenderer _spriteRenderer;
     private ShapeManager _shapemanager;
     private float invincibleTimer = 0.0f;
-    private Vector2 originalVelocity;
-    private float originalAngularVelocity;
+    //private Vector2 originalVelocity;
+    //private float originalAngularVelocity;
 
     void Awake()
     {
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour {
 
         _rigidbody.gravityScale = speed;
 
-        MasterGameManager.instance.pauseManager.onPause += FreezeMovement;
+        //MasterGameManager.instance.pauseManager.onPause += FreezeMovement;
 	}
 	
 	// Update is called once per frame
@@ -68,29 +68,29 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void OnDestroy()
-    {
-        MasterGameManager.instance.pauseManager.onPause -= FreezeMovement;
-    }
+    //void OnDestroy()
+    //{
+    //    MasterGameManager.instance.pauseManager.onPause -= FreezeMovement;
+    //}
 
-    void FreezeMovement(bool isPaused)
-    {
-        if (isPaused)
-        {
-            this.originalVelocity = this._rigidbody.velocity;
-            this.originalAngularVelocity = this._rigidbody.angularVelocity;
-            this._rigidbody.isKinematic = true;
-            this._rigidbody.velocity = Vector2.zero;
-            this._rigidbody.angularVelocity = 0;
-        }
+    //void FreezeMovement(bool isPaused)
+    //{
+    //    if (isPaused)
+    //    {
+    //        this.originalVelocity = this._rigidbody.velocity;
+    //        this.originalAngularVelocity = this._rigidbody.angularVelocity;
+    //        this._rigidbody.isKinematic = true;
+    //        this._rigidbody.velocity = Vector2.zero;
+    //        this._rigidbody.angularVelocity = 0;
+    //    }
 
-        else
-        {
-            this._rigidbody.isKinematic = false;
-            this._rigidbody.velocity = this.originalVelocity;
-            this._rigidbody.angularVelocity = this.originalAngularVelocity;
-        }
-    }
+    //    else
+    //    {
+    //        this._rigidbody.isKinematic = false;
+    //        this._rigidbody.velocity = this.originalVelocity;
+    //        this._rigidbody.angularVelocity = this.originalAngularVelocity;
+    //    }
+    //}
 
     IEnumerator Blink(float time, float blinkInterval)
     {
