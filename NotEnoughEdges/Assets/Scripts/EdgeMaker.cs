@@ -18,16 +18,17 @@ public class EdgeMaker : MonoBehaviour
         {
             //Debug.Log(GetMousePos());
             currentEdge = Instantiate(drawnEdgePrefab);
+            currentEdge.transform.SetParent(Camera.main.transform);
 
             //Debug.Log(currentEdge.points[0]);
-            currentPoints[0] = GetMousePos();
+            currentPoints[0] = GetLocalMousePos();
             //Debug.Log(currentEdge.points[0]);
         }
         if (Input.GetMouseButton(0))
         {
             //Debug.Log(GetMousePos());
             //Debug.Log(currentEdge.points[1]);
-            currentPoints[1] = GetMousePos();
+            currentPoints[1] = GetLocalMousePos();
             //Debug.Log(currentEdge.points[1]);
             
             Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2,Vector3>(currentPoints, Vector2to3);
@@ -37,16 +38,22 @@ public class EdgeMaker : MonoBehaviour
         {
             //Debug.Log(GetMousePos());
             //Debug.Log(currentEdge.points[1]);
-            currentPoints[1] = GetMousePos();
+            currentPoints[1] = GetLocalMousePos();
             //Debug.Log(currentEdge.points[1]);
 
+            currentEdge.transform.SetParent(null);
             currentEdge.points = currentPoints;
         }
     }
 
-    Vector2 GetMousePos()
+    Vector2 GetWorldMousePos()
     {
         return Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    Vector2 GetLocalMousePos()
+    {
+        return currentEdge.transform.InverseTransformPoint(GetWorldMousePos());
     }
 
     Vector3 Vector2to3 (Vector2 v)
