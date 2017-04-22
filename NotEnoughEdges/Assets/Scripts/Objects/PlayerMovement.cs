@@ -48,8 +48,10 @@ public class PlayerMovement : MonoBehaviour {
             invincibleTimer = invincibleTime;
 
             Hazard colHazard = col.gameObject.GetComponent<Hazard>();
+            ShapeManager sm = GetComponent<ShapeManager>();
 
-            health -= colHazard.damage;
+            for (int i = 0; i < colHazard.damage; ++i)
+                sm.LoseEdge();
 
             _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
 
