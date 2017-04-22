@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour {
 	void Update ()
     {
         transform.Translate(Vector3.up * Time.deltaTime * projectileSpeed);
-        transform.Translate(new Vector3(Mathf.Cos(transform.rotation.z * Mathf.PI/180) * -2, 0, 0) * Time.deltaTime);
+        transform.Translate(new Vector3(Mathf.Cos(transform.rotation.z * Mathf.PI/180) * _playermovement.terminalVelocity * -0.75f, 0, 0) * Time.deltaTime);
 	}
 
     void OnCollisionEnter2D (Collision2D col)
