@@ -9,7 +9,8 @@ public class CameraFollow : MonoBehaviour {
     public float verticalSmoothTime;
     public bool showFocusArea = false;
 
-    PolygonCollider2D playerCollider;
+    //PolygonCollider2D playerCollider;
+    SpriteRenderer playerSprite;
     FocusArea focusArea;
 
     float smoothVelocityY;
@@ -62,18 +63,18 @@ public class CameraFollow : MonoBehaviour {
 
     void Awake()
     {
-        playerCollider = player.GetComponent<PolygonCollider2D>();
+        playerSprite = player.GetComponent<SpriteRenderer>();
     }
 
 	void Start () {
-        focusArea = new FocusArea(playerCollider.bounds, focusAreaSize);
+        focusArea = new FocusArea(playerSprite.bounds, focusAreaSize);
 	}
 
     void LateUpdate()
     {
-        if (playerCollider != null)
+        if (playerSprite != null)
         {
-            focusArea.Update(playerCollider.bounds);
+            focusArea.Update(playerSprite.bounds);
 
             Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
             focusPosition.y = Mathf.SmoothDamp(this.transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
