@@ -10,4 +10,3 @@ draw edges to navigate
 avoid hazards
 collect shapes
 lose edges when damaged
-
