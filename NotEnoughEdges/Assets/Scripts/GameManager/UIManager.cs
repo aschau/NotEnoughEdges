@@ -22,7 +22,7 @@ public class UIManager : MonoBehaviour {
 
     void UpdateEdgeCount(int edgeCount)
     {
-        Debug.Log(edgeCount);
+        //Debug.Log(edgeCount);
         edgeScore.text = string.Format("Edges: {0}", edgeCount);
     }
 }

@@ -10,6 +10,8 @@ public class MasterGameManager : MonoBehaviour {
     public PauseManager pauseManager;
     public UIManager uiManager;
 
+    public bool isGameOver { get; private set; }
+
     PlayerHealth playerHealth;
     GameOverMenu gameOverMenu;
     WinMenu winMenu;
@@ -27,11 +29,13 @@ public class MasterGameManager : MonoBehaviour {
 
         DontDestroyOnLoad(this.gameObject);
 
-        sceneManager.onSceneLoaded += OnSceneLoaded;
+        sceneManager.onSceneLoaded += Initialize;
     }
 
-    void OnSceneLoaded()
+    void Initialize()
     {
+        isGameOver = false;
+
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
         winMenu = GameObject.Find("Win Menu").GetComponent<WinMenu>();
@@ -41,13 +45,19 @@ public class MasterGameManager : MonoBehaviour {
 
     void GameOver()
     {
-        Time.timeScale = 0;
+        _EndGame();
         gameOverMenu.EnableGameOverPanel(true);
     }
 
     void MaxEdge() //AKA win
     {
-        Time.timeScale = 0;
+        _EndGame();
         winMenu.EnableWinPanel(true);
+    }
+
+    void _EndGame()
+    {
+        Time.timeScale = 0;
+        isGameOver = true;
     }
 }

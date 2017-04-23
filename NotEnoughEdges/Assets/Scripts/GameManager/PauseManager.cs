@@ -19,28 +19,31 @@ public class PauseManager : MonoBehaviour {
     void OnSceneLoaded()
     {
         pauseMenu = GameObject.Find("Pause Menu").GetComponent<PauseMenu>();
-        EnablePause(false);
+        TogglePause(false);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            EnablePause(!isPaused);
+            TogglePause(!isPaused);
         }
     }
 
-    public void EnablePause(bool active)
+    public void TogglePause(bool active)
     {
-        Time.timeScale = active ? 0 : 1;
-
-        if (pauseMenu != null)
+        if (!MasterGameManager.instance.isGameOver)
         {
-            pauseMenu.EnablePausePanel(active);
+            Time.timeScale = active ? 0 : 1;
+
+            if (pauseMenu != null)
+            {
+                pauseMenu.EnablePausePanel(active);
+            }
+
+            isPaused = active;
+
+            onPause(active);
         }
-
-        isPaused = active;
-
-        onPause(active);
     }
 }
