@@ -16,5 +16,6 @@ public class BackgroundMusicControl : MonoBehaviour
     public void setVolume()
     {
         MasterGameManager.instance.audioManager.bgmVolume = this.volumeController.value;
+        PlayerPrefs.SetFloat("bgmVolume", volumeController.value);
     }
 }
