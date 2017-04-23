@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f0f80c4d3902940aa1ee96d379358c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifespan: 5
+  lifespan: 1
 --- !u!120 &120991152857265870
 LineRenderer:
   m_ObjectHideFlags: 1
