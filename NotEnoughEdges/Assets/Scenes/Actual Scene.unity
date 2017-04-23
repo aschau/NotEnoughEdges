@@ -3546,6 +3546,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 9c07884121d38d841a0e5e8e7b8cfe67,
         type: 3}
+    - target: {fileID: 60842093063073640, guid: cfc5db9b2f31993489a98abbb21e451c,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.8192
+      objectReference: {fileID: 0}
+    - target: {fileID: 60842093063073640, guid: cfc5db9b2f31993489a98abbb21e451c,
+        type: 2}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.8192
+      objectReference: {fileID: 0}
+    - target: {fileID: 114352551808662778, guid: cfc5db9b2f31993489a98abbb21e451c,
+        type: 2}
+      propertyPath: deltaGravity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114352551808662778, guid: cfc5db9b2f31993489a98abbb21e451c,
+        type: 2}
+      propertyPath: invincibleTime
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cfc5db9b2f31993489a98abbb21e451c, type: 2}
   m_IsPrefabParent: 0

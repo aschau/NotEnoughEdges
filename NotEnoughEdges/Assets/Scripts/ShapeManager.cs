@@ -9,7 +9,7 @@ public class ShapeManager : MonoBehaviour
     private PolygonCollider2D col;
     private PlayerHealth playerHealth;
 
-    private int winNum = 10;
+    private int winNum = 11;
     private int edges = 3; //Do not use outside of edgeNum
     public int edgeNum //Use this to get and set collider's shape
     {
