@@ -14,15 +14,6 @@ public class SaveManager : MonoBehaviour
         LoadScore();
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Delete))
-        {
-            Debug.Log("Deleting PlayerPrefs");
-            PlayerPrefs.DeleteAll();
-        }
-    }
-
     public void SaveScore()
     {
         float timeScore = MasterGameManager.instance.currentTime;

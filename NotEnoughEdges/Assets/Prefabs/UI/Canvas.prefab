@@ -1133,7 +1133,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Tyler: 9001'
+  m_Text: 
 --- !u!114 &114102579250925674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1338,7 +1338,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Edwin: 4000'
+  m_Text: 
 --- !u!114 &114183692837706496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1431,7 +1431,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Andrew: 1'
+  m_Text: 
 --- !u!114 &114197667099936678
 MonoBehaviour:
   m_ObjectHideFlags: 1
