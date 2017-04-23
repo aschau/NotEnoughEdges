@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damage: 1
+  damage: 0
   ability: Delete
 --- !u!212 &212722027831145088
 SpriteRenderer:
