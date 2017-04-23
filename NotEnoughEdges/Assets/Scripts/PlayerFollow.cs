@@ -18,6 +18,6 @@ public class PlayerFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.position = this.player.transform.position + this.distance;
+        this.transform.position = new Vector3(this.transform.position.x, this.player.transform.position.y + this.distance.y, this.transform.position.z) ;
 	}
 }
