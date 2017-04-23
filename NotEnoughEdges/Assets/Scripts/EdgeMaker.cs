@@ -4,27 +4,30 @@ public class EdgeMaker : MonoBehaviour
 {
     public EdgeCollider2D drawnEdgePrefab;
     private EdgeCollider2D currentEdge;
+    private LineRenderer edgeLine;
     private Vector2[] currentPoints = new Vector2[2];
-	
-	void Update ()
+
+    
+    void Update ()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) //Start edge
         {
             currentEdge = Instantiate(drawnEdgePrefab);
             currentEdge.transform.SetParent(Camera.main.transform);
-            
+
+            edgeLine = currentEdge.GetComponent<LineRenderer>();
+
             currentPoints[0] = GetLocalMousePos();
         }
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0)) //Update edge
         {
             currentPoints[1] = GetLocalMousePos();
             
             Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2,Vector3>(currentPoints, Vector2to3);
-            LineRenderer lineRenderer = currentEdge.GetComponent<LineRenderer>();
-            lineRenderer.SetPositions(currentPointsV3);
-            lineRenderer.sortingLayerName = "Foreground";
+            edgeLine.SetPositions(currentPointsV3);
+            edgeLine.sortingLayerName = "Foreground";
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0)) //End edge
         {
             currentPoints[1] = GetLocalMousePos();
 
@@ -32,9 +35,12 @@ public class EdgeMaker : MonoBehaviour
             currentEdge.points = currentPoints;
 
             Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2, Vector3>(currentPoints, Vector2to3);
-            LineRenderer lineRenderer = currentEdge.GetComponent<LineRenderer>();
-            lineRenderer.SetPositions(currentPointsV3);
-            lineRenderer.sortingLayerName = "Foreground";
+            edgeLine.SetPositions(currentPointsV3);
+            edgeLine.sortingLayerName = "Foreground";
+
+            currentEdge.GetComponent<Selfdestruct>().StartDestruct();
+            currentEdge = null;
+            edgeLine = null;
         }
     }
 
