@@ -19,14 +19,13 @@ public class Projectile : MonoBehaviour {
 
         playerRigidBody = theTarget.GetComponent<Rigidbody2D>();
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position);
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position + new Vector3(0, playerRigidBody.velocity.y * 2.5f, 0));
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         transform.Translate(Vector3.up * Time.deltaTime * projectileSpeed);
-        transform.Translate(new Vector3(Mathf.Cos(transform.rotation.z * Mathf.PI/180) * playerRigidBody.velocity.y * 0.75f, 0, 0) * Time.deltaTime); // Compensate for player falling
 	}
 
     void OnCollisionEnter2D (Collision2D col)
