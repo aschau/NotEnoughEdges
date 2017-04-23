@@ -11,6 +11,7 @@ public class MasterGameManager : MonoBehaviour {
 
     PlayerHealth playerHealth;
     GameOverMenu gameOverMenu;
+    WinMenu winMenu;
 
     void Awake()
     {
@@ -30,18 +31,27 @@ public class MasterGameManager : MonoBehaviour {
 
     void Start()
     {
+
     }
 
     void OnSceneLoaded()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
         playerHealth.onDeath += GameOver;
+        playerHealth.onWin += MaxEdge;
         gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
+        winMenu = GameObject.Find("Win Menu").GetComponent<WinMenu>();
     }
 
     void GameOver()
     {
         Time.timeScale = 0;
         gameOverMenu.EnableGameOverPanel(true);
+    }
+
+    void MaxEdge() //AKA win
+    {
+        Time.timeScale = 0;
+        winMenu.EnableWinPanel(true);
     }
 }

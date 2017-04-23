@@ -6,6 +6,7 @@ public class ShapeManager : MonoBehaviour
     private PolygonCollider2D col;
     private PlayerHealth playerHealth;
 
+    private int winNum = 10;
     private int edges = 3; //Do not use outside of edgeNum
     public int edgeNum //Use this to get and set collider's shape
     {
@@ -48,10 +49,11 @@ public class ShapeManager : MonoBehaviour
     {
         int tempNum = edgeNum + amount;
 
-        if (tempNum >= 10) //Win the game, insert winning edge number here
+        if (tempNum >= winNum) //Win the game, insert winning edge number here
         {
-            Debug.Log("You won! :D");
-            edgeNum = 10;
+            playerHealth.Win();
+            //Debug.Log("You won! :D");
+            edgeNum = winNum;
         }
         else
         {
@@ -66,7 +68,7 @@ public class ShapeManager : MonoBehaviour
         if (tempNum < 3) //Lose the game
         {
             playerHealth.Die();
-            Debug.Log("You lost. :(");
+            //Debug.Log("You lost. :(");
             edgeNum = 3;
         }
         else
