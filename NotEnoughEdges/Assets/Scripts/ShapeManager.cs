@@ -42,10 +42,10 @@ public class ShapeManager : MonoBehaviour
     {
         int tempNum = edgeNum + amount;
 
-        if (tempNum >= 15) //Win the game, insert winning edge number here
+        if (tempNum >= 10) //Win the game, insert winning edge number here
         {
             Debug.Log("You won! :D");
-            edgeNum = 15;
+            edgeNum = 10;
         }
         else
         {
@@ -70,7 +70,7 @@ public class ShapeManager : MonoBehaviour
 
     void ChangeShape (int vertNum)
     {
-        /*Vector2[] polyPoints = new Vector2[vertNum];
+        Vector2[] polyPoints = new Vector2[vertNum];
         
         float rot = (2 * Mathf.PI) / vertNum; //Get the rotation between each point
 
@@ -87,18 +87,19 @@ public class ShapeManager : MonoBehaviour
         
         //Set offset for every odd edgeNum
         //If don't set offset then col and sprite won't line up.
-        col.offset = Vector3.zero;
+        /*col.offset = Vector3.zero;
         if (edgeNum % 2 == 1)
         {
             //Debug.Log("Center of " + edgeNum + "= " + col.transform.InverseTransformPoint(col.bounds.center));
             col.offset = -col.transform.InverseTransformPoint(col.bounds.center);
         }*/
-
+   
         if (vertNum - 3 < shapes.Length)
         {
             currentShape.sprite = shapes[vertNum - 3];
         }
-        Destroy(col);
-        col = gameObject.AddComponent<PolygonCollider2D>();
+
+        /*Destroy(col);
+        col = gameObject.AddComponent<PolygonCollider2D>();*/
     }
 }
