@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour {
+public class CameraFollow : MonoBehaviour
+{
     public PlayerMovement player;
     public Vector2 focusAreaSize;
     public float verticalOffset;
@@ -10,7 +11,7 @@ public class CameraFollow : MonoBehaviour {
     public bool showFocusArea = false;
 
     //PolygonCollider2D playerCollider;
-    SpriteRenderer playerSprite;
+    //SpriteRenderer playerSprite;
     FocusArea focusArea;
 
     float smoothVelocityY;
@@ -19,40 +20,42 @@ public class CameraFollow : MonoBehaviour {
     {
         public Vector2 center;
         float left, right, top, bottom;
-        
-        public FocusArea (Bounds targetBounds, Vector2 size){
-            left = targetBounds.center.x - size.x / 2;
-            right = targetBounds.center.x + size.x / 2;
-            bottom = targetBounds.min.y;
-            top = targetBounds.min.y + size.y;
 
-            center = new Vector2((left + right) / 2, (top + bottom)/2);
+        public FocusArea(Vector2 targetPos, Vector2 size)
+        {
+            left = targetPos.x - size.x / 2;
+            right = targetPos.x + size.x / 2;
+            bottom = targetPos.y;
+            top = targetPos.y + size.y;
+
+            //center = new Vector2((left + right) / 2, (top + bottom)/2);
+            center = targetPos;
         }
 
-        public void Update(Bounds targetBounds)
+        public void Update(Vector2 targetPos)
         {
             float shiftX = 0;
             float shiftY = 0;
-            if (targetBounds.min.x < left)
+            if (targetPos.x < left)
             {
-                shiftX = targetBounds.min.x - left;
-                
+                shiftX = targetPos.x - left;
+
             }
-            else if (targetBounds.max.x > right)
+            else if (targetPos.x > right)
             {
-                shiftX = targetBounds.max.x - right;
+                shiftX = targetPos.x - right;
             }
             left += shiftX;
             right += shiftX;
 
-            if (targetBounds.min.y < bottom)
+            if (targetPos.y < bottom)
             {
-                shiftY = targetBounds.min.y - bottom;
+                shiftY = targetPos.y - bottom;
 
             }
-            else if (targetBounds.max.y > top)
+            else if (targetPos.y > top)
             {
-                shiftY = targetBounds.max.y - top;
+                shiftY = targetPos.y - top;
             }
             top += shiftY;
             bottom += shiftY;
@@ -63,26 +66,27 @@ public class CameraFollow : MonoBehaviour {
 
     void Awake()
     {
-        playerSprite = player.GetComponent<SpriteRenderer>();
+        //playerSprite = player.GetComponent<SpriteRenderer>();
     }
 
-	void Start () {
-        focusArea = new FocusArea(playerSprite.bounds, focusAreaSize);
-	}
+    void Start()
+    {
+        focusArea = new FocusArea(player.transform.position, focusAreaSize);
+    }
 
     void LateUpdate()
     {
-        if (playerSprite != null)
-        {
-            focusArea.Update(playerSprite.bounds);
+        //if (playerSprite != null)
+        //{
+        focusArea.Update(player.transform.position);
 
-            Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
-            focusPosition.y = Mathf.SmoothDamp(this.transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
-            this.transform.position = (Vector3)focusPosition + Vector3.forward * -10;
-        }   
+        Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
+        focusPosition.y = Mathf.SmoothDamp(this.transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
+        this.transform.position = (Vector3)focusPosition + Vector3.forward * -10;
+        //}   
     }
-	
-	void OnDrawGizmos()
+
+    void OnDrawGizmos()
     {
         if (showFocusArea)
         {

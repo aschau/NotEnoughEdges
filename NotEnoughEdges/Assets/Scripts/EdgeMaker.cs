@@ -22,7 +22,7 @@ public class EdgeMaker : MonoBehaviour
             Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2,Vector3>(currentPoints, Vector2to3);
             LineRenderer lineRenderer = currentEdge.GetComponent<LineRenderer>();
             lineRenderer.SetPositions(currentPointsV3);
-            lineRenderer.sortingLayerName = "Default";
+            lineRenderer.sortingLayerName = "Foreground";
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -34,7 +34,7 @@ public class EdgeMaker : MonoBehaviour
             Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2, Vector3>(currentPoints, Vector2to3);
             LineRenderer lineRenderer = currentEdge.GetComponent<LineRenderer>();
             lineRenderer.SetPositions(currentPointsV3);
-            lineRenderer.sortingLayerName = "Default";
+            lineRenderer.sortingLayerName = "Foreground";
         }
     }
 
