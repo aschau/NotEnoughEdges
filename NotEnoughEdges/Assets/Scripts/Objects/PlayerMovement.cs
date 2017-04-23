@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour {
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, terminalVelocity * -1);
 	}
 
-    void OnCollisionEnter2D (Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Hazard"))
         {
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour {
                 _shapemanager.LoseEdge(colHazard.damage); // Lose edges
             }
 
-      //      _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
+            //      _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
 
             if (colHazard.ability == "Bounce") // Bounce harder if hazard hit induces bounce
                 _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
@@ -78,8 +78,14 @@ public class PlayerMovement : MonoBehaviour {
         if (col.gameObject.CompareTag("Ceiling"))
             _shapemanager.edgeNum = 0;
 
-       // if (col.gameObject.CompareTag("Wall"))
-      //      _rigidbody.AddForce(new Vector3(transform.position.x * -1, 0, 0).normalized * bounce/10);
+        if (col.gameObject.CompareTag("Wall"))
+        {
+            invincibleTimer = invincibleTime; // Become invulnerable
+            StartCoroutine(Blink(invincibleTime, 0.2f));
+            gameObject.layer = LayerMask.NameToLayer("Invulnerable");
+
+            _shapemanager.LoseEdge(1); // Lose edges
+        }
     }
 
     //void OnDestroy()
