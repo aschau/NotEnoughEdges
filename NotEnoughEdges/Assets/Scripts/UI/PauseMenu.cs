@@ -19,7 +19,7 @@ public class PauseMenu : Menu {
 
     public void Continue()
     {
-        MasterGameManager.instance.pauseManager.EnablePause(false);
+        MasterGameManager.instance.pauseManager.TogglePause(false);
     }
 
     public void Settings()
@@ -29,6 +29,6 @@ public class PauseMenu : Menu {
 
     public void Pause()
     {
-        MasterGameManager.instance.pauseManager.EnablePause(true);
+        MasterGameManager.instance.pauseManager.TogglePause(true);
     }
 }
