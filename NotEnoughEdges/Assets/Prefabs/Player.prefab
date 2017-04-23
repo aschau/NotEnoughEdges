@@ -134,13 +134,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de89796558a1f3f4c9f33461250660ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 0.2
+  gravity: 0.1
   size: 1
   bounce: 400
   invincibleTime: 2
   terminalVelocity: 2
   deltaTerminal: 0.5
-  deltaGravity: 0.5
+  deltaGravity: 0.2
 --- !u!114 &114602697204819200
 MonoBehaviour:
   m_ObjectHideFlags: 1
