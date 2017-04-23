@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     private SpriteRenderer _spriteRenderer;
     private ShapeManager _shapemanager;
     private float invincibleTimer = 0.0f;
+    public static Color currentColor;
     //private Vector2 originalVelocity;
     //private float originalAngularVelocity;
 
@@ -29,10 +30,6 @@ public class PlayerMovement : MonoBehaviour {
     void Start ()
     {
         transform.localScale = new Vector3(size, size, size);
-
-        
-
-        
 
         //MasterGameManager.instance.pauseManager.onPause += FreezeMovement;
 	}
@@ -53,7 +50,9 @@ public class PlayerMovement : MonoBehaviour {
         if (_rigidbody.velocity.y < (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal)) * -1) // Enforce terminal velocity
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, terminalVelocity * -1);
 
-        _spriteRenderer.color = new Color(1, (8 - (_shapemanager.edgeNum - 3)) / 8.0f, (8 - (_shapemanager.edgeNum - 3)) / 8.0f);
+        currentColor = new Color(1, (7 - (_shapemanager.edgeNum - 3)) / 7.0f, (7 - (_shapemanager.edgeNum - 3)) / 7.0f);
+        if (invincibleTimer <= 0)
+            _spriteRenderer.color = currentColor;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -122,9 +121,9 @@ public class PlayerMovement : MonoBehaviour {
             if (fragment < blinkInterval)
                 _spriteRenderer.color = Color.clear;
             else
-                _spriteRenderer.color = Color.white;
+                _spriteRenderer.color = currentColor;
             yield return new WaitForEndOfFrame();
         }
-        _spriteRenderer.color = Color.white;
+        _spriteRenderer.color = currentColor;
     }
 }
