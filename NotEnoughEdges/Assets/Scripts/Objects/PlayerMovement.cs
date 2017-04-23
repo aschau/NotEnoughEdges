@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         if (col.gameObject.CompareTag("Ceiling"))
-            _shapemanager.LoseEdge(20);
+            _shapemanager.edgeNum = 0;
     }
 
     //void OnDestroy()
