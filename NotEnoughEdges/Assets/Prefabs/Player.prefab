@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: 0.1
   size: 1
-  bounce: 300
+  bounce: 200
   invincibleTime: 2
   terminalVelocity: 2.5
   deltaTerminal: 0.6
