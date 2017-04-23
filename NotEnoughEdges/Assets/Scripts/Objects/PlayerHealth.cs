@@ -3,11 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
-    public delegate void OnDeath();
-    public event OnDeath onDeath = delegate { };
+    public delegate void Thing();
+    public event Thing onDeath = delegate { };
+    public event Thing onWin;
 
     public void Die()
     {
         onDeath();
+    }
+
+    public void Win()
+    {
+        onWin();
     }
 }
