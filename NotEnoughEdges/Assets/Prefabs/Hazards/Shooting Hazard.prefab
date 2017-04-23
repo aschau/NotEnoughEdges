@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656c897af2a62ea42be5793c564f1d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1738886027677266, guid: 58f8047245ae8d84fbd28dbbad8fb271, type: 2}
+  projectile: {fileID: 1825253949036536, guid: 58f8047245ae8d84fbd28dbbad8fb271, type: 2}
   stillTime: 2
   fireRate: 1
 --- !u!114 &114838640960644420
