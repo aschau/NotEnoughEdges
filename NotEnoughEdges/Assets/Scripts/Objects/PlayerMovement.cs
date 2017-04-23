@@ -32,7 +32,6 @@ public class PlayerMovement : MonoBehaviour {
     void Start ()
     {
         transform.localScale = new Vector3(size, size, size);
-
         //MasterGameManager.instance.pauseManager.onPause += FreezeMovement;
 	}
 	
@@ -55,6 +54,8 @@ public class PlayerMovement : MonoBehaviour {
         currentColor = new Color(1, (7 - (_shapemanager.edgeNum - 3)) / 7.0f, (7 - (_shapemanager.edgeNum - 3)/2.0f) / 7.0f);
         if (invincibleTimer <= 0)
             _spriteRenderer.color = currentColor;
+
+
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -93,7 +94,8 @@ public class PlayerMovement : MonoBehaviour {
             //_shapemanager.LoseEdge(1); // Lose edges
             _shapemanager.ChangeEdge(-1);
 
-            Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
+
+            GameObject particles = Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
         }
     }
 

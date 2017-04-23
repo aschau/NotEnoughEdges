@@ -38,9 +38,8 @@ public class Hazard : MonoBehaviour {
         
         if (this.ability == "Bounce")
         {
-            if (Vector3.Distance(this.transform.position, this.player.transform.position) < 2f)
+            if (Vector3.Distance(this.transform.position, this.player.transform.position) < 2f && this.player.GetComponent<Rigidbody2D>().velocity.y < 2f)
             {
-                Debug.Log("BOUNCE ATTACK");
                 this.anim.Play("Bounce Collision");
             }
         }
