@@ -8,7 +8,8 @@ public class GetMoreEdge : MonoBehaviour
     {
         if (col.CompareTag("Player")) //Hit player
         {
-            col.GetComponent<ShapeManager>().GainEdge(amountGained);
+            //col.GetComponent<ShapeManager>().GainEdge(amountGained);
+            col.GetComponent<ShapeManager>().ChangeEdge(amountGained);
 
             Destroy(gameObject);
         }

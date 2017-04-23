@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114352551808662778}
   - component: {fileID: 114602697204819200}
   - component: {fileID: 114833475889065176}
+  - component: {fileID: 114413523236123184}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -141,6 +142,19 @@ MonoBehaviour:
   terminalVelocity: 2
   deltaTerminal: 0.5
   deltaGravity: 0.2
+--- !u!114 &114413523236123184
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799641840778714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0d5660130df654482cfbffd7d85de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageClip: {fileID: 8300000, guid: cff1c647488ba114286ae2275d9db897, type: 3}
+  edgeGainClip: {fileID: 8300000, guid: 4e5e996762f8ac540853cd10f876955c, type: 3}
 --- !u!114 &114602697204819200
 MonoBehaviour:
   m_ObjectHideFlags: 1
