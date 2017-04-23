@@ -66,6 +66,9 @@ public class PlayerMovement : MonoBehaviour {
             if (colHazard.ability == "Bounce") // Bounce if hazard hit induces bounce
                 _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
         }
+
+        if (col.gameObject.CompareTag("Ceiling"))
+            _shapemanager.LoseEdge(20);
     }
 
     //void OnDestroy()
