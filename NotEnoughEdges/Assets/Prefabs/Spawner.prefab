@@ -61,5 +61,5 @@ MonoBehaviour:
   - {fileID: 1303461748787158, guid: 11719ee71637ca9438e3267fafc1776d, type: 2}
   rate: 12
   deltaRate: 4
-  range: {x: -1.75, y: 1.75}
+  range: {x: -2.25, y: 2.25}
   distance: 10
