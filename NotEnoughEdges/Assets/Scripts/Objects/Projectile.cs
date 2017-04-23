@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour {
     void OnCollisionEnter2D (Collision2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Drawing")) // Bounce back if hits drawn line
-            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1);
+            transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 180);
         else
             Destroy(gameObject);
     }
