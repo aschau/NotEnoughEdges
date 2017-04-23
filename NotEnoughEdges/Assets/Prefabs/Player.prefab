@@ -108,7 +108,7 @@ MonoBehaviour:
   invincibleTime: 3
   terminalVelocity: 2
   deltaTerminal: 1
-  deltaGravity: 0.1
+  deltaGravity: 0.3
 --- !u!114 &114602697204819200
 MonoBehaviour:
   m_ObjectHideFlags: 1

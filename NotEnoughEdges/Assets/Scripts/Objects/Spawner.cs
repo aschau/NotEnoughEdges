@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
     public List<GameObject> enemyList;
-    public List<float> probList;
+    private List<float> probList;
     public float rate;
     public float deltaRate;
     public Vector2 range;
-    public static float highEnd = 0;
-    public static float lowEnd = 0;
+    public static float highEnd;
+    public static float lowEnd;
     private GameObject player;
     private ShapeManager sm;
     public float distance;
@@ -23,15 +23,13 @@ public class Spawner : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-
+        lowEnd = highEnd = transform.position.y;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
         highEnd = transform.position.y;
-
-        Debug.Log(highEnd - lowEnd);
 
         if (player.transform.position.y - transform.position.y < distance) // Hold spawner below player
             transform.position = new Vector3(transform.position.x, player.transform.position.y - distance, transform.position.z);
@@ -55,6 +53,34 @@ public class Spawner : MonoBehaviour {
             }
 
             Instantiate(toSpawn, transform.position + new Vector3(Random.Range(range.x, range.y), 0, 0), Quaternion.identity);
+        }
+
+        switch (sm.edgeNum)
+        {
+            case 3:
+                probList = new List<float> { 1.0f, 0.0f, 0.0f, 0.5f, 0.0f, 0.0f, 2.0f };
+                break;
+            case 4:
+                probList = new List<float> { 1.0f, 0.2f, 0.0f, 0.5f, 0.0f, 0.0f, 2.0f };
+                break;
+            case 5:
+                probList = new List<float> { 1.0f, 0.3f, 0.0f, 0.6f, 0.0f, 0.0f, 2.0f };
+                break;
+            case 6:
+                probList = new List<float> { 1.0f, 0.4f, 0.1f, 0.7f, 0.0f, 0.0f, 2.0f };
+                break;
+            case 7:
+                probList = new List<float> { 1.0f, 0.5f, 0.2f, 0.8f, 0.2f, 0.0f, 2.0f };
+                break;
+            case 8:
+                probList = new List<float> { 1.0f, 0.6f, 0.3f, 0.9f, 0.4f, 0.5f, 2.0f };
+                break;
+            case 9:
+                probList = new List<float> { 1.0f, 0.7f, 0.4f, 1.0f, 0.6f, 1.0f, 2.0f };
+                break;
+            case 10:
+                probList = new List<float> { 1.0f, 0.8f, 0.5f, 1.0f, 0.8f, 1.5f, 2.0f };
+                break;
         }
 	}
 

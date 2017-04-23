@@ -153,6 +153,41 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114644800765501588, guid: 18795a129a5378d418d5d8d50bc0ff64,
+        type: 2}
+      propertyPath: rate
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644800765501588, guid: 18795a129a5378d418d5d8d50bc0ff64,
+        type: 2}
+      propertyPath: probList.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644800765501588, guid: 18795a129a5378d418d5d8d50bc0ff64,
+        type: 2}
+      propertyPath: probList.Array.data[2]
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644800765501588, guid: 18795a129a5378d418d5d8d50bc0ff64,
+        type: 2}
+      propertyPath: probList.Array.data[4]
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644800765501588, guid: 18795a129a5378d418d5d8d50bc0ff64,
+        type: 2}
+      propertyPath: probList.Array.data[3]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644800765501588, guid: 18795a129a5378d418d5d8d50bc0ff64,
+        type: 2}
+      propertyPath: probList.Array.data[5]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114644800765501588, guid: 18795a129a5378d418d5d8d50bc0ff64,
+        type: 2}
+      propertyPath: probList.Array.data[6]
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18795a129a5378d418d5d8d50bc0ff64, type: 2}
   m_IsPrefabParent: 0
