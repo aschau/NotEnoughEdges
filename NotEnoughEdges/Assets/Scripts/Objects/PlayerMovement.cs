@@ -52,7 +52,9 @@ public class PlayerMovement : MonoBehaviour {
 
         if (_rigidbody.velocity.y < (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal)) * -1) // Enforce terminal velocity
             _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, terminalVelocity * -1);
-	}
+
+        _spriteRenderer.color = new Color(1, (8 - (_shapemanager.edgeNum - 3)) / 8.0f, (8 - (_shapemanager.edgeNum - 3)) / 8.0f);
+    }
 
     void OnCollisionEnter2D(Collision2D col)
     {
