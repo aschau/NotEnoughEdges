@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 199709914979894654}
   - component: {fileID: 198568429966060708}
   - component: {fileID: 114042879925151844}
+  - component: {fileID: 114388209548771906}
   m_Layer: 0
   m_Name: Bottom Particles
   m_TagString: Untagged
@@ -51,6 +52,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eae2ff26eae8a6f408e9c60507d35e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114388209548771906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288521750096488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31399421930fabb40978ab2a56d1f1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!198 &198568429966060708
@@ -192,11 +204,11 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 1
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key0: {r: 0.7453505, g: 0, b: 0.8308824, a: 1}
+        key1: {r: 0, g: 0.8235294, b: 0.8235294, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -488,7 +500,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 14
+    maxNumParticles: 50
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -540,7 +552,7 @@ ParticleSystem:
     boxY: 1
     boxZ: 1
     radius:
-      value: 6.25
+      value: 2.86
       mode: 0
       spread: 0
       speed:
@@ -3101,7 +3113,7 @@ ParticleSystemRenderer:
   m_SortingFudge: 0
   m_NormalDirection: 1
   m_RenderAlignment: 0
-  m_Pivot: {x: 0, y: -7.21, z: 0}
+  m_Pivot: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
   m_Mesh: {fileID: 0}

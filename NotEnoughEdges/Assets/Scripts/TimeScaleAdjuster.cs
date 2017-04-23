@@ -13,7 +13,12 @@ public class TimeScaleAdjuster : MonoBehaviour {
 	void Update () {
         if (Time.timeScale == 0)
         {
-            this.ps.Simulate(7f * Time.unscaledDeltaTime, true, false);
+            this.ps.Simulate(Time.unscaledDeltaTime, true, false);
+        }
+
+        else
+        {
+            this.ps.Simulate(Time.deltaTime, true, false);
         }
 
 
