@@ -67,7 +67,8 @@ public class PlayerMovement : MonoBehaviour {
                 StartCoroutine(Blink(invincibleTime, 0.2f));
                 gameObject.layer = LayerMask.NameToLayer("Invulnerable");
 
-                _shapemanager.LoseEdge(colHazard.damage); // Lose edges
+                //_shapemanager.LoseEdge(colHazard.damage); // Lose edges
+                _shapemanager.ChangeEdge(-colHazard.damage);
             }
 
             //      _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
@@ -85,7 +86,8 @@ public class PlayerMovement : MonoBehaviour {
             StartCoroutine(Blink(invincibleTime, 0.2f));
             gameObject.layer = LayerMask.NameToLayer("Invulnerable");
 
-            _shapemanager.LoseEdge(1); // Lose edges
+            //_shapemanager.LoseEdge(1); // Lose edges
+            _shapemanager.ChangeEdge(-1);
         }
     }
 

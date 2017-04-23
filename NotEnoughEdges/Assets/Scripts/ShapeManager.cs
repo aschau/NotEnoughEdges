@@ -2,13 +2,12 @@
 
 public class ShapeManager : MonoBehaviour
 {
-    public delegate void OnEdgeChange(int currentCount);
+    public delegate void OnEdgeChange(int edgeDelta);
     public event OnEdgeChange onEdgeChange = delegate { };
 
     public float radius;
     private PolygonCollider2D col;
     private PlayerHealth playerHealth;
-    private SpriteRenderer _spriterenderer;
 
     private int winNum = 11;
     private int edges = 3; //Do not use outside of edgeNum
@@ -23,63 +22,46 @@ public class ShapeManager : MonoBehaviour
             edges = value;
             ChangeShape(value);
         }
-    } 
-    
+    }
+
     public Sprite[] shapes;
     private SpriteRenderer currentShape;
 
-    void Awake()
-    {
-        _spriterenderer = GetComponent<SpriteRenderer>();
-    }
-
-    void Start ()
+    void Start()
     {
         col = GetComponent<PolygonCollider2D>();
         currentShape = GetComponent<SpriteRenderer>();
         playerHealth = this.GetComponent<PlayerHealth>();
 
         edgeNum = edgeNum;
-	}
+    }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            GainEdge(1);
+            ChangeEdge(1);
+            //GainEdge(1);
         }
         if (Input.GetKeyDown(KeyCode.Mouse2))
         {
-            LoseEdge(1);
+            ChangeEdge(-1);
+            //LoseEdge(1);
         }
     }
 
-    public void GainEdge(int amount)
+    public void ChangeEdge(int amount)
     {
         int tempNum = edgeNum + amount;
 
-        if (tempNum >= winNum) //Win the game, insert winning edge number here
+        if (tempNum >= winNum)  //Win the game, insert winning edge number here
         {
             playerHealth.Win();
-            //Debug.Log("You won! :D");
             edgeNum = winNum;
         }
-        else
-        {
-            edgeNum = tempNum;
-        }
-
-        onEdgeChange(edgeNum);
-    }
-
-    public void LoseEdge(int amount)
-    {
-        int tempNum = edgeNum - amount;
-
-        if (tempNum < 3) //Lose the game
+        else if (tempNum < 3)   //Lose the game
         {
             playerHealth.Die();
-            //Debug.Log("You lost. :(");
             edgeNum = 3;
         }
         else
@@ -87,15 +69,50 @@ public class ShapeManager : MonoBehaviour
             edgeNum = tempNum;
         }
 
-        onEdgeChange(edgeNum);
+        onEdgeChange(amount);
     }
+    //public void GainEdge(int amount)
+    //{
+    //    int tempNum = edgeNum + amount;
 
-    void ChangeShape (int vertNum)
+    //    if (tempNum >= winNum) //Win the game, insert winning edge number here
+    //    {
+    //        playerHealth.Win();
+    //        //Debug.Log("You won! :D");
+    //        edgeNum = winNum;
+    //    }
+    //    else
+    //    {
+    //        edgeNum = tempNum;
+    //    }
+
+    //    onEdgeChange(amount);
+    //}
+
+    //public void LoseEdge(int amount)
+    //{
+    //    int tempNum = edgeNum - amount;
+
+    //    if (tempNum < 3) //Lose the game
+    //    {
+    //        playerHealth.Die();
+    //        //Debug.Log("You lost. :(");
+    //        edgeNum = 3;
+    //    }
+    //    else
+    //    {
+    //        edgeNum = tempNum;
+    //    }
+
+    //    onEdgeChange(amount);
+    //}
+
+    void ChangeShape(int vertNum)
     {
         Spawner.resetSpawn();
 
         Vector2[] polyPoints = new Vector2[vertNum];
-        
+
         float rot = (2 * Mathf.PI) / vertNum; //Get the rotation between each point
 
         for (int i = 0; i < vertNum; i++) //Get the coordinates for each point
@@ -105,10 +122,10 @@ public class ShapeManager : MonoBehaviour
 
             polyPoints[i] = trigRot * radius;
         }
-        
+
         //Make the shape
         col.points = polyPoints;
-        
+
         //Set offset for every odd edgeNum
         //If don't set offset then col and sprite won't line up.
         /*col.offset = Vector3.zero;
@@ -117,13 +134,11 @@ public class ShapeManager : MonoBehaviour
             //Debug.Log("Center of " + edgeNum + "= " + col.transform.InverseTransformPoint(col.bounds.center));
             col.offset = -col.transform.InverseTransformPoint(col.bounds.center);
         }*/
-   
+
         if (vertNum - 3 < shapes.Length)
         {
             currentShape.sprite = shapes[vertNum - 3];
         }
-
-        _spriterenderer.color = PlayerMovement.currentColor;
 
         /*Destroy(col);
         col = gameObject.AddComponent<PolygonCollider2D>();*/

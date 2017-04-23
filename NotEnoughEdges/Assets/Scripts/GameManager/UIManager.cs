@@ -20,9 +20,8 @@ public class UIManager : MonoBehaviour {
         shapeManager.onEdgeChange += UpdateEdgeCount;
     }
 
-    void UpdateEdgeCount(int edgeCount)
+    void UpdateEdgeCount(int changeDelta)
     {
-        //Debug.Log(edgeCount);
-        edgeScore.text = string.Format("Edges: {0}", edgeCount);
+        edgeScore.text = string.Format("Edges: {0}", shapeManager.edgeNum);
     }
 }
