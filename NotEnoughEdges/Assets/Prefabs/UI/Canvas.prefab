@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 222466170491910172}
   - component: {fileID: 114561748923195476}
   - component: {fileID: 114605970793647416}
+  - component: {fileID: 114945788543970056}
   m_Layer: 5
   m_Name: Exit Game Button
   m_TagString: Untagged
@@ -1919,7 +1920,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114561748923195476}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114945788543970056}
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114637988717421022
@@ -2440,6 +2452,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114945788543970056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1418529845790112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1301ca38d4bed2d42adc42b82daba8f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114975362117583216
 MonoBehaviour:
   m_ObjectHideFlags: 1
