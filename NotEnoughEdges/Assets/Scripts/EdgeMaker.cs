@@ -20,7 +20,9 @@ public class EdgeMaker : MonoBehaviour
             currentPoints[1] = GetLocalMousePos();
             
             Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2,Vector3>(currentPoints, Vector2to3);
-            currentEdge.GetComponent<LineRenderer>().SetPositions(currentPointsV3);
+            LineRenderer lineRenderer = currentEdge.GetComponent<LineRenderer>();
+            lineRenderer.SetPositions(currentPointsV3);
+            lineRenderer.sortingLayerName = "Default";
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -30,7 +32,9 @@ public class EdgeMaker : MonoBehaviour
             currentEdge.points = currentPoints;
 
             Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2, Vector3>(currentPoints, Vector2to3);
-            currentEdge.GetComponent<LineRenderer>().SetPositions(currentPointsV3);
+            LineRenderer lineRenderer = currentEdge.GetComponent<LineRenderer>();
+            lineRenderer.SetPositions(currentPointsV3);
+            lineRenderer.sortingLayerName = "Default";
         }
     }
 
