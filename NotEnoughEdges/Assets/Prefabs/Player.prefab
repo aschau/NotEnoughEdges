@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   size: 1
-  bounce: 60
+  bounce: 500
   invincibleTime: 3
   terminalVelocity: 2
   deltaTerminal: 1

@@ -400,6 +400,19 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 47551142}
+    - target: {fileID: 1426434680796656, guid: ea523d1e49c4b47438260bc42f4ca172, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978254209192214, guid: ea523d1e49c4b47438260bc42f4ca172, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 114498075756645164, guid: ea523d1e49c4b47438260bc42f4ca172,
+        type: 2}
+      propertyPath: focusAreaSize.y
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea523d1e49c4b47438260bc42f4ca172, type: 2}
   m_IsPrefabParent: 0

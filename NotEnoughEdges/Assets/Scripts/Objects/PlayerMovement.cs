@@ -63,12 +63,15 @@ public class PlayerMovement : MonoBehaviour {
 
             _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
 
-            if (colHazard.ability == "Bounce") // Bounce if hazard hit induces bounce
+            if (colHazard.ability == "Bounce") // Bounce harder if hazard hit induces bounce
                 _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
         }
 
         if (col.gameObject.CompareTag("Ceiling"))
             _shapemanager.edgeNum = 0;
+
+        if (col.gameObject.CompareTag("Wall"))
+            _rigidbody.AddForce(new Vector3(transform.position.x * -1, 0, 0).normalized * bounce/10);
     }
 
     //void OnDestroy()
