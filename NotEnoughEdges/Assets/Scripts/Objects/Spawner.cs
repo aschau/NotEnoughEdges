@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour {
     public float rate;
     public float deltaRate;
     public Vector2 range;
-    private float timer = 0.0f;
+    private int dividend = 0;
     private GameObject player;
     private ShapeManager sm;
     public float distance;
@@ -28,14 +28,14 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        Debug.Log(dividend);
+
         if (player.transform.position.y - transform.position.y < distance) // Hold spawner below player
             transform.position = new Vector3(transform.position.x, player.transform.position.y - distance, transform.position.z);
 
-        timer += Time.deltaTime;
-
-        if (timer >= 60 / (rate + (sm.edgeNum - 3) * deltaRate)) 
+        if (dividend <= transform.position.y / -100 * (rate + (sm.edgeNum - 3) * deltaRate))
         {
-            timer = 0;
+            ++dividend;
             float selection = Random.Range(0.0f, Helper.sumList(probList));
             GameObject toSpawn = enemyList[0];
 

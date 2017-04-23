@@ -11,23 +11,26 @@ public class Hazard : MonoBehaviour {
     private Rigidbody2D _rigidbody;
     private Vector2 originalVelocity;
     private float originalAngularVelocity;
+    private Transform player;
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     // Use this for initialization
     void Start ()
     {
-        Destroy(gameObject, timer);
-
         MasterGameManager.instance.pauseManager.onPause += FreezeMovement;
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if (transform.position.y - player.position.y > 10)
+            Destroy(gameObject);
+
         transform.Translate(Vector3.up * Time.deltaTime * speed);
 	}
 

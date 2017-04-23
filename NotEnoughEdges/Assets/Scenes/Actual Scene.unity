@@ -400,6 +400,19 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 47551142}
+    - target: {fileID: 1426434680796656, guid: ea523d1e49c4b47438260bc42f4ca172, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 1978254209192214, guid: ea523d1e49c4b47438260bc42f4ca172, type: 2}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 114498075756645164, guid: ea523d1e49c4b47438260bc42f4ca172,
+        type: 2}
+      propertyPath: focusAreaSize.y
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea523d1e49c4b47438260bc42f4ca172, type: 2}
   m_IsPrefabParent: 0
@@ -434,7 +447,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4104127960042486, guid: cfc5db9b2f31993489a98abbb21e451c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.87
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4104127960042486, guid: cfc5db9b2f31993489a98abbb21e451c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -476,7 +489,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4056606542368324, guid: f023c25ab7883bd4bbe6cefaee5353a8, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.099999905
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4056606542368324, guid: f023c25ab7883bd4bbe6cefaee5353a8, type: 2}
       propertyPath: m_LocalPosition.z
