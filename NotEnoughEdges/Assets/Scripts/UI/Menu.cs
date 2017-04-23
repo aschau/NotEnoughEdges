@@ -17,4 +17,9 @@ public class Menu : MonoBehaviour {
         Application.Quit ();
 #endif
     }
+
+    public void LoadScene(string name)
+    {
+        MasterGameManager.instance.sceneManager.LoadScene(name);
+    }
 }
