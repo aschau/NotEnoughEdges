@@ -31,4 +31,9 @@ public class PauseMenu : MonoBehaviour {
     {
         EnableSettingsPanel(true);
     }
+
+    public void Pause()
+    {
+        MasterGameManager.instance.pauseManager.EnablePause(true);
+    }
 }
