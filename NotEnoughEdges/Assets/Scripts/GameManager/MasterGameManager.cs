@@ -8,6 +8,7 @@ public class MasterGameManager : MonoBehaviour {
     public AudioManager audioManager;
     public SceneManagerWrapper sceneManager;
     public PauseManager pauseManager;
+    public UIManager uiManager;
 
     PlayerHealth playerHealth;
     GameOverMenu gameOverMenu;
@@ -29,18 +30,13 @@ public class MasterGameManager : MonoBehaviour {
         sceneManager.onSceneLoaded += OnSceneLoaded;
     }
 
-    void Start()
-    {
-
-    }
-
     void OnSceneLoaded()
     {
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        playerHealth.onDeath += GameOver;
-        playerHealth.onWin += MaxEdge;
         gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
         winMenu = GameObject.Find("Win Menu").GetComponent<WinMenu>();
+        playerHealth.onDeath += GameOver;
+        playerHealth.onWin += MaxEdge;
     }
 
     void GameOver()

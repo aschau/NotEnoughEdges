@@ -2,6 +2,9 @@
 
 public class ShapeManager : MonoBehaviour
 {
+    public delegate void OnEdgeChange(int currentCount);
+    public event OnEdgeChange onEdgeChange = delegate { };
+
     public float radius;
     private PolygonCollider2D col;
     private PlayerHealth playerHealth;
@@ -59,6 +62,8 @@ public class ShapeManager : MonoBehaviour
         {
             edgeNum = tempNum;
         }
+
+        onEdgeChange(edgeNum);
     }
 
     public void LoseEdge(int amount)
@@ -75,6 +80,8 @@ public class ShapeManager : MonoBehaviour
         {
             edgeNum = tempNum;
         }
+
+        onEdgeChange(edgeNum);
     }
 
     void ChangeShape (int vertNum)
