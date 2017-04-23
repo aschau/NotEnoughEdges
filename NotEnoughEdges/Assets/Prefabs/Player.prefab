@@ -120,16 +120,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3b1b7ff3146704c8a38b5952b7d14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 0.55
+  radius: 0.4
   shapes:
-  - {fileID: 21300000, guid: 8a0319362a388ab44aa33ca7aed8c855, type: 3}
-  - {fileID: 21300000, guid: 370da2b4315244c4cbfcf32428d496a1, type: 3}
-  - {fileID: 21300000, guid: 7669d1baa572e4f4e8a2eb0cbf998987, type: 3}
-  - {fileID: 21300000, guid: d759d624904c6b9478d2600f933a5cfc, type: 3}
-  - {fileID: 21300000, guid: d9325155970fe1f478a68161bbfcdd81, type: 3}
-  - {fileID: 21300000, guid: 35e199b23f73d9e4eb8ecfbc9ea0158d, type: 3}
-  - {fileID: 21300000, guid: 41023bad73d0ef340879d5d7a93562ab, type: 3}
-  - {fileID: 21300000, guid: 1501e73edf5ed7a429fc30c66a0faf37, type: 3}
+  - {fileID: 21300000, guid: 9c07884121d38d841a0e5e8e7b8cfe67, type: 3}
+  - {fileID: 21300000, guid: 10baee7e15942ef44b79ee0d12318023, type: 3}
+  - {fileID: 21300000, guid: 558bd67db232de4458557ebcdab18f13, type: 3}
+  - {fileID: 21300000, guid: 77dc30c857883c345b85102030a2c3a8, type: 3}
+  - {fileID: 21300000, guid: e1107d64f3102f84db3ae1ccdeb97dac, type: 3}
+  - {fileID: 21300000, guid: f0e79a878f3543f49ab119bb58d678fc, type: 3}
+  - {fileID: 21300000, guid: 298002b6d5abc194a88e381349911da7, type: 3}
+  - {fileID: 21300000, guid: 908dfe31fe385464fae99d27d111acfc, type: 3}
 --- !u!212 &212445008614593806
 SpriteRenderer:
   m_ObjectHideFlags: 1
