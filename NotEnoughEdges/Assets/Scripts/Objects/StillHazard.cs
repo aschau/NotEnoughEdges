@@ -10,10 +10,13 @@ public class StillHazard : MonoBehaviour {
     private float stillTimer = 0.0f;
     private bool isClose = false;
     private float fireTimer = 0.0f;
+    private Rigidbody2D playerRigidBody;
 
     void Awake()
     {
         theTarget = GameObject.FindWithTag("Player");
+
+        playerRigidBody = theTarget.GetComponent<Rigidbody2D>();
     }
 
     // Use this for initialization
@@ -25,6 +28,8 @@ public class StillHazard : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        Debug.Log(playerRigidBody.velocity.y);
+
         if (theTarget.transform.position.y - transform.position.y < 3)
             isClose = true;
 
@@ -43,5 +48,7 @@ public class StillHazard : MonoBehaviour {
                 Instantiate(projectile, transform.position, Quaternion.identity);
             }
         }
-	}
+
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position  + new Vector3(0, playerRigidBody.velocity.y * 1.5f, 0));
+    }
 }

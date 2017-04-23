@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour {
             gameObject.layer = LayerMask.NameToLayer("Default");
 
         if (_rigidbody.velocity.y < (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal)) * -1) // Enforce terminal velocity
-            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, terminalVelocity * -1);
+            _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, (terminalVelocity + ((_shapemanager.edgeNum - 3) * deltaTerminal)) * -1);
 
         currentColor = new Color(1, (7 - (_shapemanager.edgeNum - 3)) / 7.0f, (7 - (_shapemanager.edgeNum - 3)/2.0f) / 7.0f);
         if (invincibleTimer <= 0)
