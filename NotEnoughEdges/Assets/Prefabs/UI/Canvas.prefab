@@ -2665,6 +2665,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1568423619987610}
+  titleText: {fileID: 114271692442893156}
+  yourScore: {fileID: 114424148928928964}
+  hiscoreTextList:
+  - {fileID: 114097229302221306}
+  - {fileID: 114155232319678488}
+  - {fileID: 114194904687544740}
 --- !u!114 &114763510471451946
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4627,7 +4633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5992534, y: 0.7876911}
   m_AnchorMax: {x: 1, y: 0.86054456}
-  m_AnchoredPosition: {x: -1.8899994, y: 4.899994}
+  m_AnchoredPosition: {x: -1.8900146, y: 4.899994}
   m_SizeDelta: {x: 2.75, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224936301714624374

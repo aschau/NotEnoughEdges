@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114805931408272838}
   - component: {fileID: 114498423771518336}
   - component: {fileID: 114934913155824724}
+  - component: {fileID: 114525241663446870}
   m_Layer: 0
   m_Name: MasterGameManager
   m_TagString: Untagged
@@ -279,6 +280,7 @@ MonoBehaviour:
   sceneManager: {fileID: 114805931408272838}
   pauseManager: {fileID: 114498423771518336}
   uiManager: {fileID: 114934913155824724}
+  saveManager: {fileID: 114525241663446870}
 --- !u!114 &114342962361792028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,6 +306,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPaused: 0
+--- !u!114 &114525241663446870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422777826411170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01d4173cd7e57a428da67174bf63611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114805931408272838
 MonoBehaviour:
   m_ObjectHideFlags: 1
