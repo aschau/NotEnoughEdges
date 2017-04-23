@@ -40,7 +40,7 @@ public class StillHazard : MonoBehaviour {
             if (fireTimer > 1/fireRate) // Fire projectile
             {
                 fireTimer = 0;
-                Instantiate(projectile, transform.position + Vector3.up * 3f, Quaternion.identity);
+                Instantiate(projectile, transform.position, Quaternion.identity);
             }
         }
 	}

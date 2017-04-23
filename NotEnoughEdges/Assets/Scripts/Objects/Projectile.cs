@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour {
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Drawing")) // Bounce back if hits drawn line
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z * -1);
-
-        Destroy(gameObject);
+        else
+            Destroy(gameObject);
     }
 }
