@@ -27,8 +27,8 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (player.transform.position.y - transform.position.y < 20) // Hold spawner below player
-            transform.position = new Vector3(transform.position.x, player.transform.position.y - 20, transform.position.z);
+        if (player.transform.position.y - transform.position.y < 50) // Hold spawner below player
+            transform.position = new Vector3(transform.position.x, player.transform.position.y - 50, transform.position.z);
 
         timer += Time.deltaTime;
 
