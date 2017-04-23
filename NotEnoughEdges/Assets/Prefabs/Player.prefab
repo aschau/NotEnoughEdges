@@ -90,7 +90,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.5
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 7b2e275104ad83f419e5a19f52b1465b, type: 2}
   m_Interpolate: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
   size: 1
   bounce: 300
   invincibleTime: 2
-  terminalVelocity: 2
-  deltaTerminal: 0.5
+  terminalVelocity: 2.5
+  deltaTerminal: 0.6
   deltaGravity: 0.2
 --- !u!114 &114413523236123184
 MonoBehaviour:
