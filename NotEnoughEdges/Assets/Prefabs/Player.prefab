@@ -104,9 +104,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   size: 1
-  bounce: 300
+  bounce: 60
   invincibleTime: 3
-  terminalVelocity: 10
+  terminalVelocity: 2
   deltaTerminal: 1
 --- !u!114 &114602697204819200
 MonoBehaviour:
@@ -121,14 +121,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1
   shapes:
-  - {fileID: 21300000, guid: acf0421be11a9bc4fa8bb6ff46b89623, type: 3}
-  - {fileID: 21300000, guid: 1538f9f802ca6e945b80c05bed38ccdb, type: 3}
-  - {fileID: 21300000, guid: 7f12ef019b1472a45b03086abfaf209e, type: 3}
-  - {fileID: 21300000, guid: 6ebf7964382d08b45b26264361dfebfb, type: 3}
-  - {fileID: 21300000, guid: 7a779c2c9de633a448e261d473568233, type: 3}
-  - {fileID: 21300000, guid: a1bf0b32190763044aea12a6dd0403dc, type: 3}
-  - {fileID: 21300000, guid: 52134cc85abd12b4bad9841c85bc7fdd, type: 3}
-  - {fileID: 21300000, guid: e3e61934c043a004b8ec0f76825395f7, type: 3}
+  - {fileID: 21300000, guid: 8a0319362a388ab44aa33ca7aed8c855, type: 3}
+  - {fileID: 21300000, guid: 370da2b4315244c4cbfcf32428d496a1, type: 3}
+  - {fileID: 21300000, guid: 7669d1baa572e4f4e8a2eb0cbf998987, type: 3}
+  - {fileID: 21300000, guid: d759d624904c6b9478d2600f933a5cfc, type: 3}
+  - {fileID: 21300000, guid: d9325155970fe1f478a68161bbfcdd81, type: 3}
+  - {fileID: 21300000, guid: 35e199b23f73d9e4eb8ecfbc9ea0158d, type: 3}
+  - {fileID: 21300000, guid: 41023bad73d0ef340879d5d7a93562ab, type: 3}
+  - {fileID: 21300000, guid: 1501e73edf5ed7a429fc30c66a0faf37, type: 3}
 --- !u!212 &212445008614593806
 SpriteRenderer:
   m_ObjectHideFlags: 1

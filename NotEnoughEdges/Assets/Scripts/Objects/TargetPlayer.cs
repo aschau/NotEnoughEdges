@@ -5,6 +5,7 @@ using UnityEngine;
 public class TargetPlayer : MonoBehaviour {
     private bool target = true;
     private GameObject theTarget;
+    public float targetSpeed;
 
     // Use this for initialization
 
@@ -17,7 +18,7 @@ public class TargetPlayer : MonoBehaviour {
 	void Update ()
     {
         if (target)
-            transform.Translate(new Vector3(theTarget.transform.position.x - transform.position.x, 0, 0).normalized * 0.5f * Time.deltaTime);
+            transform.Translate(new Vector3(theTarget.transform.position.x - transform.position.x, 0, 0).normalized * targetSpeed * Time.deltaTime);
 	}
 
     void OnCollisionEnter2D(Collision2D col)

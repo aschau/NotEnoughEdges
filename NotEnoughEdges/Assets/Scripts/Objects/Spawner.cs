@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour {
     private float timer = 0.0f;
     private GameObject player;
     private ShapeManager sm;
+    public float distance;
 
     private void Awake()
     {
@@ -27,8 +28,8 @@ public class Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (player.transform.position.y - transform.position.y < 50) // Hold spawner below player
-            transform.position = new Vector3(transform.position.x, player.transform.position.y - 50, transform.position.z);
+        if (player.transform.position.y - transform.position.y < distance) // Hold spawner below player
+            transform.position = new Vector3(transform.position.x, player.transform.position.y - distance, transform.position.z);
 
         timer += Time.deltaTime;
 

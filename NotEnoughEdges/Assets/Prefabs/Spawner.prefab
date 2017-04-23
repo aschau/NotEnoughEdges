@@ -67,6 +67,7 @@ MonoBehaviour:
   - 0.35
   - 0.8
   - 0.05
-  rate: 10
-  deltaRate: 0.5
-  range: {x: -5, y: 5}
+  rate: 8
+  deltaRate: 1
+  range: {x: -2.5, y: 2.5}
+  distance: 10

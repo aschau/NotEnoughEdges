@@ -32,8 +32,8 @@ public class StillHazard : MonoBehaviour {
         {
             stillTimer += Time.deltaTime;
 
-            if (theTarget.transform.position.y - transform.position.y < 10)
-                transform.position = new Vector3(transform.position.x, theTarget.transform.position.y - 10, transform.position.z);
+            if (theTarget.transform.position.y - transform.position.y < 3)
+                transform.position = new Vector3(transform.position.x, theTarget.transform.position.y - 3, transform.position.z);
 
             fireTimer += Time.deltaTime;
 
