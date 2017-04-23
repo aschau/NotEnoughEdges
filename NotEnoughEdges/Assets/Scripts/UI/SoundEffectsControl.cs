@@ -38,5 +38,6 @@ public class SoundEffectsControl : MonoBehaviour
         //}
         //sliderAmount = this.volumeController.value;
         MasterGameManager.instance.audioManager.sfxVolume = this.volumeController.value;
+        PlayerPrefs.SetFloat("sfxVolume", volumeController.value);
     }
 }

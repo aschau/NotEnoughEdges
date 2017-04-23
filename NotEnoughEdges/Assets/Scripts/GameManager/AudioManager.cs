@@ -21,4 +21,10 @@ public class AudioManager : MonoBehaviour {
     {
         sfxPlayer.PlayOneShot(clip, volume);
     }
+
+    private void Awake()
+    {
+        sfxVolume = PlayerPrefs.GetFloat("sfxVolume");
+        bgmVolume = PlayerPrefs.GetFloat("bgmVolume");
+    }
 }
