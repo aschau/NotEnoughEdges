@@ -70,7 +70,7 @@ public class ShapeManager : MonoBehaviour
 
     void ChangeShape (int vertNum)
     {
-        GameObject.FindWithTag("Other").GetComponent<Spawner>().dividend++;
+        Spawner.resetSpawn();
 
         Vector2[] polyPoints = new Vector2[vertNum];
         
