@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
                 gameObject.layer = LayerMask.NameToLayer("Invulnerable");
 
                 //_shapemanager.LoseEdge(colHazard.damage); // Lose edges
-                _shapemanager.ChangeEdge(1);
+                _shapemanager.ChangeEdge(-colHazard.damage);
             }
 
             //      _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
