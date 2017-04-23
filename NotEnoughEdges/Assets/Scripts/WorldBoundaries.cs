@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WorldBoundaries : MonoBehaviour
 {
-    public EdgeCollider2D leftWall, rightWall;
+    public Collider2D leftWall, rightWall;
 
     void Start()
     {
