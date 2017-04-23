@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1799641840778714}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -2.04, z: 0}
+  m_LocalPosition: {x: -0.5, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,11 +102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de89796558a1f3f4c9f33461250660ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 2
   size: 1
-  bounce: 50
-  invincibleTime: 2
-  terminalVelocity: 6
+  bounce: 300
+  invincibleTime: 3
+  terminalVelocity: 10
   deltaTerminal: 1
 --- !u!114 &114602697204819200
 MonoBehaviour:
@@ -121,10 +121,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1
   shapes:
-  - {fileID: 21300000, guid: 22cdd1c6c19d7ce45bf2d14216c1b09f, type: 3}
-  - {fileID: 21300000, guid: a1440a3f2015ca445bfcd1435642458f, type: 3}
-  - {fileID: 21300000, guid: 12405299f74859841b9aea41b0e5177a, type: 3}
-  - {fileID: 21300000, guid: 072289067ac011f44b1cbcb3bd1c3ea2, type: 3}
+  - {fileID: 21300000, guid: acf0421be11a9bc4fa8bb6ff46b89623, type: 3}
+  - {fileID: 21300000, guid: 1538f9f802ca6e945b80c05bed38ccdb, type: 3}
+  - {fileID: 21300000, guid: 7f12ef019b1472a45b03086abfaf209e, type: 3}
+  - {fileID: 21300000, guid: 6ebf7964382d08b45b26264361dfebfb, type: 3}
+  - {fileID: 21300000, guid: 7a779c2c9de633a448e261d473568233, type: 3}
+  - {fileID: 21300000, guid: a1bf0b32190763044aea12a6dd0403dc, type: 3}
+  - {fileID: 21300000, guid: 52134cc85abd12b4bad9841c85bc7fdd, type: 3}
+  - {fileID: 21300000, guid: e3e61934c043a004b8ec0f76825395f7, type: 3}
 --- !u!212 &212445008614593806
 SpriteRenderer:
   m_ObjectHideFlags: 1
