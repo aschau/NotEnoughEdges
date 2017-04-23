@@ -12,11 +12,14 @@ public class Hazard : MonoBehaviour {
     private Vector2 originalVelocity;
     private float originalAngularVelocity;
     private Transform player;
+    private Animator anim;
+    //private bool animating = false;
 
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
+        this.anim = GetComponentInChildren<Animator>();
     }
 
     // Use this for initialization
@@ -32,6 +35,15 @@ public class Hazard : MonoBehaviour {
             Destroy(gameObject);
 
         transform.Translate(Vector3.up * Time.deltaTime * speed);
+        
+        if (this.ability == "Bounce")
+        {
+            if (Vector3.Distance(this.transform.position, this.player.transform.position) < 2f)
+            {
+                Debug.Log("BOUNCE ATTACK");
+                this.anim.Play("Bounce Collision");
+            }
+        }
 	}
 
     void OnDestroy()
