@@ -25,22 +25,22 @@ public class StillHazard : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (theTarget.transform.position.y - transform.position.y < 3)
+        if (theTarget.transform.position.y - transform.position.y < 10)
             isClose = true;
 
         if (stillTimer < stillTime && isClose) // Hold position below player for a few seconds
         {
             stillTimer += Time.deltaTime;
 
-            if (theTarget.transform.position.y - transform.position.y < 3)
-                transform.position = new Vector3(transform.position.x, theTarget.transform.position.y - 3, transform.position.z);
+            if (theTarget.transform.position.y - transform.position.y < 10)
+                transform.position = new Vector3(transform.position.x, theTarget.transform.position.y - 10, transform.position.z);
 
             fireTimer += Time.deltaTime;
 
             if (fireTimer > 1/fireRate) // Fire projectile
             {
                 fireTimer = 0;
-                Instantiate(projectile, transform.position + Vector3.up * 0.8f, Quaternion.identity);
+                Instantiate(projectile, transform.position + Vector3.up * 3f, Quaternion.identity);
             }
         }
 	}

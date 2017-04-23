@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour {
 
         playerRigidBody = theTarget.GetComponent<Rigidbody2D>();
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position + new Vector3(0, playerRigidBody.velocity.y * 2.5f, 0));
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position + new Vector3(0, playerRigidBody.velocity.y * 1.5f, 0));
 	}
 	
 	// Update is called once per frame

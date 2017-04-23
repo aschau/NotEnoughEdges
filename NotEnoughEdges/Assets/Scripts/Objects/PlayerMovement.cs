@@ -103,5 +103,6 @@ public class PlayerMovement : MonoBehaviour {
                 _spriteRenderer.color = Color.white;
             yield return new WaitForEndOfFrame();
         }
+        _spriteRenderer.color = Color.white;
     }
 }
