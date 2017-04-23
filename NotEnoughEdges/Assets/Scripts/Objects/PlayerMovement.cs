@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    public float speed;
+    public float gravity;
     public float size;
     public float bounce;
     public float invincibleTime;
     public float terminalVelocity;
     public float deltaTerminal;
+    public float deltaGravity;
 
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
@@ -29,7 +30,9 @@ public class PlayerMovement : MonoBehaviour {
     {
         transform.localScale = new Vector3(size, size, size);
 
-        _rigidbody.gravityScale = speed;
+        
+
+        
 
         //MasterGameManager.instance.pauseManager.onPause += FreezeMovement;
 	}
@@ -37,6 +40,8 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        _rigidbody.gravityScale = gravity + (_shapemanager.edgeNum - 3) * deltaGravity;
+
         if (invincibleTimer > 0) // Invulnerability frames
         {
             invincibleTimer -= Time.deltaTime;   

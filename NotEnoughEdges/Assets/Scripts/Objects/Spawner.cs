@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour {
     public float rate;
     public float deltaRate;
     public Vector2 range;
-    private int dividend = 0;
+    public int dividend = 0;
     private GameObject player;
     private ShapeManager sm;
     public float distance;

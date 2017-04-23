@@ -70,6 +70,8 @@ public class ShapeManager : MonoBehaviour
 
     void ChangeShape (int vertNum)
     {
+        GameObject.FindWithTag("Other").GetComponent<Spawner>().dividend++;
+
         Vector2[] polyPoints = new Vector2[vertNum];
         
         float rot = (2 * Mathf.PI) / vertNum; //Get the rotation between each point

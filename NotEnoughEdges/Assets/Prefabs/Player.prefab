@@ -102,12 +102,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de89796558a1f3f4c9f33461250660ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.4
+  gravity: 0.2
   size: 1
   bounce: 200
   invincibleTime: 3
   terminalVelocity: 2
   deltaTerminal: 1
+  deltaGravity: 0.1
 --- !u!114 &114602697204819200
 MonoBehaviour:
   m_ObjectHideFlags: 1
