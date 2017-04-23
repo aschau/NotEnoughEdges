@@ -10,8 +10,6 @@ public class CameraFollow : MonoBehaviour
     public float verticalSmoothTime;
     public bool showFocusArea = false;
 
-    //PolygonCollider2D playerCollider;
-    //SpriteRenderer playerSprite;
     FocusArea focusArea;
 
     float smoothVelocityY;
@@ -28,7 +26,6 @@ public class CameraFollow : MonoBehaviour
             bottom = targetPos.y;
             top = targetPos.y + size.y;
 
-            //center = new Vector2((left + right) / 2, (top + bottom)/2);
             center = targetPos;
         }
 
@@ -64,11 +61,6 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-        //playerSprite = player.GetComponent<SpriteRenderer>();
-    }
-
     void Start()
     {
         focusArea = new FocusArea(player.transform.position, focusAreaSize);
@@ -76,14 +68,11 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        //if (playerSprite != null)
-        //{
         focusArea.Update(player.transform.position);
 
         Vector2 focusPosition = focusArea.center + Vector2.up * verticalOffset;
         focusPosition.y = Mathf.SmoothDamp(this.transform.position.y, focusPosition.y, ref smoothVelocityY, verticalSmoothTime);
         this.transform.position = (Vector3)focusPosition + Vector3.forward * -10;
-        //}   
     }
 
     void OnDrawGizmos()
