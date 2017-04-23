@@ -8,6 +8,7 @@ public class ShapeManager : MonoBehaviour
     public float radius;
     private PolygonCollider2D col;
     private PlayerHealth playerHealth;
+    private SpriteRenderer _spriterenderer;
 
     private int winNum = 11;
     private int edges = 3; //Do not use outside of edgeNum
@@ -26,6 +27,11 @@ public class ShapeManager : MonoBehaviour
     
     public Sprite[] shapes;
     private SpriteRenderer currentShape;
+
+    void Awake()
+    {
+        _spriterenderer = GetComponent<SpriteRenderer>();
+    }
 
     void Start ()
     {
@@ -116,6 +122,8 @@ public class ShapeManager : MonoBehaviour
         {
             currentShape.sprite = shapes[vertNum - 3];
         }
+
+        _spriterenderer.color = PlayerMovement.currentColor;
 
         /*Destroy(col);
         col = gameObject.AddComponent<PolygonCollider2D>();*/
