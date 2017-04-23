@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour {
         if (col.gameObject.CompareTag("Ceiling"))
             _shapemanager.edgeNum = 0;
 
-        if (col.gameObject.CompareTag("Wall"))
+        if (col.gameObject.CompareTag("Wall") && invincibleTimer <= 0)
         {
             invincibleTimer = invincibleTime; // Become invulnerable
             StartCoroutine(Blink(invincibleTime, 0.2f));
