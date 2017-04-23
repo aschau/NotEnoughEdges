@@ -413,6 +413,31 @@ Prefab:
       propertyPath: focusAreaSize.y
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 68037424061699366, guid: ea523d1e49c4b47438260bc42f4ca172,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 7b2e275104ad83f419e5a19f52b1465b, type: 2}
+    - target: {fileID: 68497058386294410, guid: ea523d1e49c4b47438260bc42f4ca172,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 7b2e275104ad83f419e5a19f52b1465b, type: 2}
+    - target: {fileID: 20189143516981820, guid: ea523d1e49c4b47438260bc42f4ca172,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20189143516981820, guid: ea523d1e49c4b47438260bc42f4ca172,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20189143516981820, guid: ea523d1e49c4b47438260bc42f4ca172,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea523d1e49c4b47438260bc42f4ca172, type: 2}
   m_IsPrefabParent: 0
