@@ -38,6 +38,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4348013720770084}
   - component: {fileID: 212979706735723854}
+  - component: {fileID: 95458500641274978}
   m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
@@ -138,6 +139,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.4
+--- !u!95 &95458500641274978
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256506194429496}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e48cf7fb2d9a724090f60d2a992c63d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &108551252709511440
 Light:
   m_ObjectHideFlags: 1
