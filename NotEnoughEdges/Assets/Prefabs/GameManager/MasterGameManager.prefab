@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114342962361792028}
   - component: {fileID: 114805931408272838}
   - component: {fileID: 114498423771518336}
+  - component: {fileID: 114934913155824724}
   m_Layer: 0
   m_Name: MasterGameManager
   m_TagString: Untagged
@@ -116,7 +117,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -277,6 +278,7 @@ MonoBehaviour:
   audioManager: {fileID: 114342962361792028}
   sceneManager: {fileID: 114805931408272838}
   pauseManager: {fileID: 114498423771518336}
+  uiManager: {fileID: 114934913155824724}
 --- !u!114 &114342962361792028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,3 +316,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentScene: 
+--- !u!114 &114934913155824724
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1422777826411170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82d7fc03debb9442b74f4a947b49248, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

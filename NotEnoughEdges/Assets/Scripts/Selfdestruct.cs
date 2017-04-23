@@ -2,10 +2,19 @@
 
 public class Selfdestruct : MonoBehaviour
 {
+    public bool destructOnStart = false;
     public float lifespan;
 
 	void Start ()
     {
-        Destroy(gameObject, lifespan);
+        if (destructOnStart)
+        {
+            StartDestruct();
+        }
 	}
+
+    public void StartDestruct()
+    {
+        Destroy(gameObject, lifespan);
+    }
 }

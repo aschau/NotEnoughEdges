@@ -57,4 +57,9 @@ public class Hazard : MonoBehaviour {
             this._rigidbody.angularVelocity = this.originalAngularVelocity;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        _rigidbody.constraints = RigidbodyConstraints2D.FreezePositionY;
+    }
 }

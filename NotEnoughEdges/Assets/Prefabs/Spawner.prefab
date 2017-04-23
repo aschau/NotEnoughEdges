@@ -59,7 +59,7 @@ MonoBehaviour:
   - {fileID: 1227201131281188, guid: cf72b6ee9b59a1a44906411782969b3d, type: 2}
   - {fileID: 1951667939892700, guid: 852e4cf209f2afd4c80874c3f542f5f9, type: 2}
   - {fileID: 1303461748787158, guid: 11719ee71637ca9438e3267fafc1776d, type: 2}
-  rate: 12
-  deltaRate: 4
+  rate: 20
+  deltaRate: 6
   range: {x: -2.25, y: 2.25}
   distance: 10

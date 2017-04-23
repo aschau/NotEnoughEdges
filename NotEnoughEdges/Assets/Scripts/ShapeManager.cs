@@ -2,11 +2,14 @@
 
 public class ShapeManager : MonoBehaviour
 {
+    public delegate void OnEdgeChange(int currentCount);
+    public event OnEdgeChange onEdgeChange = delegate { };
+
     public float radius;
     private PolygonCollider2D col;
     private PlayerHealth playerHealth;
 
-    private int winNum = 10;
+    private int winNum = 11;
     private int edges = 3; //Do not use outside of edgeNum
     public int edgeNum //Use this to get and set collider's shape
     {
@@ -59,6 +62,8 @@ public class ShapeManager : MonoBehaviour
         {
             edgeNum = tempNum;
         }
+
+        onEdgeChange(edgeNum);
     }
 
     public void LoseEdge(int amount)
@@ -75,6 +80,8 @@ public class ShapeManager : MonoBehaviour
         {
             edgeNum = tempNum;
         }
+
+        onEdgeChange(edgeNum);
     }
 
     void ChangeShape (int vertNum)

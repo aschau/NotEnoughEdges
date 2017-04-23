@@ -61,25 +61,25 @@ public class Spawner : MonoBehaviour {
                 probList = new List<float> { 1.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.5f };
                 break;
             case 4:
-                probList = new List<float> { 1.0f, 0.4f, 0.0f, 0.0f, 0.0f, 0.0f, 0.5f };
+                probList = new List<float> { 0.9f, 0.4f, 0.0f, 0.0f, 0.0f, 0.0f, 0.5f };
                 break;
             case 5:
-                probList = new List<float> { 1.0f, 0.6f, 0.0f, 0.0f, 0.0f, 0.0f, 0.5f };
+                probList = new List<float> { 0.8f, 0.6f, 0.0f, 0.0f, 0.0f, 0.0f, 0.5f };
                 break;
             case 6:
-                probList = new List<float> { 1.0f, 0.8f, 0.1f, 0.6f, 0.0f, 0.0f, 0.5f };
+                probList = new List<float> { 0.7f, 0.8f, 0.3f, 0.1f, 0.0f, 0.0f, 0.5f };
                 break;
             case 7:
-                probList = new List<float> { 1.0f, 1.0f, 0.2f, 0.7f, 0.2f, 0.0f, 0.5f };
+                probList = new List<float> { 0.6f, 1.0f, 0.4f, 0.2f, 0.2f, 0.0f, 0.5f };
                 break;
             case 8:
-                probList = new List<float> { 1.0f, 1.2f, 0.3f, 0.8f, 0.4f, 0.5f, 0.5f };
+                probList = new List<float> { 0.5f, 1.2f, 0.5f, 0.3f, 0.4f, 1.0f, 0.5f };
                 break;
             case 9:
-                probList = new List<float> { 1.0f, 1.4f, 0.4f, 0.9f, 0.6f, 1.0f, 0.5f };
+                probList = new List<float> { 0.4f, 1.4f, 0.6f, 0.4f, 0.6f, 1.5f, 0.5f };
                 break;
             case 10:
-                probList = new List<float> { 1.0f, 1.6f, 0.5f, 1.0f, 0.8f, 1.5f, 0.5f };
+                probList = new List<float> { 0.3f, 1.6f, 0.7f, 1.5f, 0.8f, 2.0f, 0.5f };
                 break;
         }
 	}
