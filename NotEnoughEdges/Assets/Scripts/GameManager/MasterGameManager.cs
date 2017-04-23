@@ -9,6 +9,9 @@ public class MasterGameManager : MonoBehaviour {
     public SceneManagerWrapper sceneManager;
     public PauseManager pauseManager;
 
+    PlayerHealth playerHealth;
+    GameOverMenu gameOverMenu;
+
     void Awake()
     {
         if (instance == null)
@@ -21,5 +24,24 @@ public class MasterGameManager : MonoBehaviour {
         }
 
         DontDestroyOnLoad(this.gameObject);
+
+        sceneManager.onSceneLoaded += OnSceneLoaded;
+    }
+
+    void Start()
+    {
+    }
+
+    void OnSceneLoaded()
+    {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
+        playerHealth.onDeath += GameOver;
+        gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
+    }
+
+    void GameOver()
+    {
+        Time.timeScale = 0;
+        gameOverMenu.EnableGameOverPanel(true);
     }
 }
