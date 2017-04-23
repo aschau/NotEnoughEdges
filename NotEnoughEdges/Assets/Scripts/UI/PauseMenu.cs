@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenu : MonoBehaviour {
+public class PauseMenu : Menu {
 
     public GameObject pausePanel;
     public GameObject settingsPanel;
@@ -20,11 +20,6 @@ public class PauseMenu : MonoBehaviour {
     public void Continue()
     {
         MasterGameManager.instance.pauseManager.EnablePause(false);
-    }
-
-    public void Restart()
-    {
-        MasterGameManager.instance.sceneManager.ReloadScene();
     }
 
     public void Settings()

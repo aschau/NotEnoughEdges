@@ -4,6 +4,7 @@ public class ShapeManager : MonoBehaviour
 {
     public float radius;
     private PolygonCollider2D col;
+    private PlayerHealth playerHealth;
 
     private int edges = 3; //Do not use outside of edgeNum
     public int edgeNum //Use this to get and set collider's shape
@@ -26,6 +27,7 @@ public class ShapeManager : MonoBehaviour
     {
         col = GetComponent<PolygonCollider2D>();
         currentShape = GetComponent<SpriteRenderer>();
+        playerHealth = this.GetComponent<PlayerHealth>();
 
         edgeNum = edgeNum;
 	}
@@ -35,6 +37,10 @@ public class ShapeManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             GainEdge(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse2))
+        {
+            LoseEdge(1);
         }
     }
 
@@ -59,6 +65,7 @@ public class ShapeManager : MonoBehaviour
 
         if (tempNum < 3) //Lose the game
         {
+            playerHealth.Die();
             Debug.Log("You lost. :(");
             edgeNum = 3;
         }
