@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour {
     //private Vector2 originalVelocity;
     //private float originalAngularVelocity;
 
+    public GameObject hurtParticlePrefab;
+
     void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -69,6 +71,8 @@ public class PlayerMovement : MonoBehaviour {
 
                 //_shapemanager.LoseEdge(colHazard.damage); // Lose edges
                 _shapemanager.ChangeEdge(-colHazard.damage);
+
+                Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
             }
 
             //      _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
@@ -88,6 +92,8 @@ public class PlayerMovement : MonoBehaviour {
 
             //_shapemanager.LoseEdge(1); // Lose edges
             _shapemanager.ChangeEdge(-1);
+
+            Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
         }
     }
 
