@@ -44,6 +44,7 @@ public class ShapeManager : MonoBehaviour
 
     void Update()
     {
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             ChangeEdge(1);
@@ -54,6 +55,7 @@ public class ShapeManager : MonoBehaviour
             ChangeEdge(-1);
             //LoseEdge(1);
         }
+#endif
 
         playerEmmiter.rateOverTime = 100 * (edgeNum - 2)/8;
     }
