@@ -23,7 +23,7 @@ public class SpikeAnimation : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Vector3.Distance(this.transform.position, this.player.transform.position) < 2f && this.playerRB.velocity.y < 2f)
+        if (Vector3.Distance(this.transform.position, this.player.transform.position) < 3f && this.playerRB.velocity.y < 2f)
         {
             this.anim.Play("Impact");
         }
