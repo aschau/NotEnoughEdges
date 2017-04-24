@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour {
     private ShapeManager _shapemanager;
     private float invincibleTimer = 0.0f;
     public static Color currentColor;
+    public bool wallsHurt = false;
     //private Vector2 originalVelocity;
     //private float originalAngularVelocity;
 
@@ -55,7 +56,8 @@ public class PlayerMovement : MonoBehaviour {
         if (invincibleTimer <= 0)
             _spriteRenderer.color = currentColor;
 
-
+        if (_shapemanager.edgeNum >= 8 && !wallsHurt)
+            wallsHurt = true;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -66,14 +68,8 @@ public class PlayerMovement : MonoBehaviour {
 
             if (colHazard.damage > 0)
             {
-                invincibleTimer = invincibleTime; // Become invulnerable
-                StartCoroutine(Blink(invincibleTime, 0.2f));
-                gameObject.layer = LayerMask.NameToLayer("Invulnerable");
-
-                //_shapemanager.LoseEdge(colHazard.damage); // Lose edges
-                _shapemanager.ChangeEdge(-colHazard.damage);
-
-                Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
+                getHurt(-colHazard.damage, col);
+              //  Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
             }
 
             //      _rigidbody.AddForce((transform.position - col.transform.position).normalized * bounce);
@@ -85,17 +81,10 @@ public class PlayerMovement : MonoBehaviour {
         if (col.gameObject.CompareTag("Ceiling"))
             _shapemanager.edgeNum = 0;
 
-        if (col.gameObject.CompareTag("Wall") && invincibleTimer <= 0)
+        if (col.gameObject.CompareTag("Wall") && wallsHurt && invincibleTimer <= 0)
         {
-            invincibleTimer = invincibleTime; // Become invulnerable
-            StartCoroutine(Blink(invincibleTime, 0.2f));
-            gameObject.layer = LayerMask.NameToLayer("Invulnerable");
-
-            //_shapemanager.LoseEdge(1); // Lose edges
-            _shapemanager.ChangeEdge(-1);
-
-
-            GameObject particles = Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
+            getHurt(-1, col);
+            //GameObject particles = Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
         }
     }
 
@@ -122,6 +111,15 @@ public class PlayerMovement : MonoBehaviour {
     //        this._rigidbody.angularVelocity = this.originalAngularVelocity;
     //    }
     //}
+
+    void getHurt (int damage, Collision2D col)
+    {
+        invincibleTimer = invincibleTime; // Become invulnerable
+        StartCoroutine(Blink(invincibleTime, 0.2f));
+        gameObject.layer = LayerMask.NameToLayer("Invulnerable");
+        _shapemanager.ChangeEdge(damage);
+        Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);
+    }
 
     IEnumerator Blink(float time, float blinkInterval)
     {
