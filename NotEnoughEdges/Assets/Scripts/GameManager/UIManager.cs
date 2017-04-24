@@ -15,7 +15,7 @@ public class UIManager : MonoBehaviour {
 
     void OnSceneLoaded(string sceneName)
     {
-        if (sceneName != "Main Menu")
+        if (sceneName == "Main Level")
         {
             edgeScore = GameObject.Find("Edge Score").GetComponent<Text>();
             shapeManager = GameObject.FindGameObjectWithTag("Player").GetComponent<ShapeManager>();
