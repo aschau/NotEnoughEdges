@@ -7,11 +7,6 @@ public class EdgeMaker : MonoBehaviour
     private EdgeCollider2D currentEdge;
     private LineRenderer edgeLine;
     private Vector2[] currentPoints = new Vector2[2];
-
-    void Awake()
-    {
-        Debug.Log(this.gameObject.name);
-    }
     
     void Update ()
     {
