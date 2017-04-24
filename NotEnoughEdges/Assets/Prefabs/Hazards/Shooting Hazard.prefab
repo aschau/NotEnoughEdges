@@ -124,7 +124,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 1
+  m_Constraints: 5
 --- !u!58 &58622970637323068
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -149,7 +149,7 @@ Animator:
   m_GameObject: {fileID: 1154401626787994}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 29443fa0f0bb2bb45a3aa4b5fc57ae81, type: 2}
+  m_Controller: {fileID: 9100000, guid: b21e05740050501468185e56c1f25565, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -216,9 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 656c897af2a62ea42be5793c564f1d4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1825253949036536, guid: 58f8047245ae8d84fbd28dbbad8fb271, type: 2}
-  stillTime: 2
-  fireRate: 1
+  projectile1: {fileID: 1825253949036536, guid: 58f8047245ae8d84fbd28dbbad8fb271,
+    type: 2}
+  projectile2: {fileID: 1233588138375404, guid: 3cdd56ddcc4d6ff4bb224d3a52c7c69b,
+    type: 2}
+  stillTime: 3
+  fireRate: 2
 --- !u!114 &114838640960644420
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StillHazard : MonoBehaviour {
-    public GameObject projectile;
+    public GameObject projectile1;
+    public GameObject projectile2;
     public float stillTime;
     public float fireRate;
     private GameObject theTarget;
@@ -53,7 +54,7 @@ public class StillHazard : MonoBehaviour {
             }
         }
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position  + new Vector3(0, playerRigidBody.velocity.y * 1.5f, 0));
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position);
     }
 
     void Fire ()
@@ -63,15 +64,17 @@ public class StillHazard : MonoBehaviour {
             ++numOfFires;
             _animator.Play("1st Shot Part 1");
             while (_animator.GetCurrentAnimatorStateInfo(1).IsName("1st Shot Part 1"));
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            Instantiate(projectile1, transform.position, Quaternion.identity);
             _animator.Play("1st Shot Part 2");
+            while (_animator.GetCurrentAnimatorStateInfo(1).IsName("1st Shot Part 2"));
+            _animator.Play("After 1st Shot");
         }
         else if (numOfFires == 1)
         {
             ++numOfFires;
             _animator.Play("2nd Shot Part 1");
-            while (_animator.GetCurrentAnimatorStateInfo(1).IsName("2nd Shot Part 1")) ;
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            while (_animator.GetCurrentAnimatorStateInfo(1).IsName("2nd Shot Part 1"));
+            Instantiate(projectile2, transform.position, Quaternion.identity);
             _animator.Play("2nd Shot Part 2");
         }
     }
