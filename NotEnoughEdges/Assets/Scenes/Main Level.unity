@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawnEdgePrefab: {fileID: 68413864074042456, guid: 552e23bd75901c349bc6ffde4d07e6fc,
     type: 2}
-  drawingColor: {r: 1, g: 0.5441177, b: 0.5441177, a: 0.5882353}
+  drawingColor: {r: 0, g: 1, b: 1, a: 1}
   finalColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &201137730
 GameObject:
