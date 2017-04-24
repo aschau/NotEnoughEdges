@@ -14,6 +14,7 @@ public class MasterGameManager : MonoBehaviour {
     public bool isGameOver { get; private set; }
     public float currentTime { get; private set; }
     public int maxEdges { get; private set; }
+    public float bestTime { get; private set; }
 
     PlayerHealth playerHealth;
     ShapeManager shapeManager;
@@ -50,6 +51,7 @@ public class MasterGameManager : MonoBehaviour {
             playerHealth.onWin += MaxEdge;
             gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
             currentTime = 0f;
+            bestTime = 0f;
             maxEdges = 3;
         }
     }
@@ -65,7 +67,10 @@ public class MasterGameManager : MonoBehaviour {
     void UpdateMaxEdges(int amount)
     {
         if (shapeManager.edgeNum > maxEdges)
+        {
             maxEdges = shapeManager.edgeNum;
+            bestTime = currentTime;
+        }
     }
 
     void GameOver()
