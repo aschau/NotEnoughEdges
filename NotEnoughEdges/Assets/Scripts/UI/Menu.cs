@@ -9,6 +9,11 @@ public class Menu : MonoBehaviour {
         MasterGameManager.instance.sceneManager.ReloadScene();
     }
 
+    public void GoToMainMenu()
+    {
+        MasterGameManager.instance.sceneManager.LoadScene("Main Menu");
+    }
+
     public void Quit()
     {
 #if UNITY_EDITOR
