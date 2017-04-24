@@ -48,19 +48,20 @@ public class StillHazard : MonoBehaviour {
             if (fireTimer > 1/fireRate && numOfFires == 0) // Fire projectile
             {
                 ++numOfFires;
-                _animator.Play("1st Shot Part 1");
+                _animator.Play("Shots Part 1");
                 StartCoroutine(Fire());
             }
-        }
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position);
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position);
+        }
     }
 
-    IEnumerator Fire ()
-    {
-        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length);
+    IEnumerator Fire()
+    { 
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length + 0.2f);
         Instantiate(projectile1, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length - 0.5f);
         Instantiate(projectile2, transform.position, Quaternion.identity);
     }
 }
