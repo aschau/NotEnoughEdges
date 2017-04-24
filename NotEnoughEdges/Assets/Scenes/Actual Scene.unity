@@ -330,10 +330,20 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224805597098160848, guid: ffeea5793e6b8b74eba5e1b43a4413b1,
+    - target: {fileID: 114097229302221306, guid: ffeea5793e6b8b74eba5e1b43a4413b1,
         type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -1.8900146
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114155232319678488, guid: ffeea5793e6b8b74eba5e1b43a4413b1,
+        type: 2}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114194904687544740, guid: ffeea5793e6b8b74eba5e1b43a4413b1,
+        type: 2}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ffeea5793e6b8b74eba5e1b43a4413b1, type: 2}

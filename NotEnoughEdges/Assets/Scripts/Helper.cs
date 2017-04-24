@@ -36,4 +36,8 @@ public class Helper {
         }
     }
 
+    public static string formatTime(float time)
+    {
+        return string.Format("{0}:{1:00}", (int)time / 60, (int)time % 60);
+    }
 }
