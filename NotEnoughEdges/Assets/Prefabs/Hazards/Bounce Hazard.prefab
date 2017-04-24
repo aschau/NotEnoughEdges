@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4348013720770084}
   - component: {fileID: 212979706735723854}
   - component: {fileID: 95458500641274978}
+  - component: {fileID: 114917891148279686}
   m_Layer: 9
   m_Name: Sprite
   m_TagString: Untagged
@@ -218,6 +219,17 @@ MonoBehaviour:
   speed: 1.5
   damage: 0
   ability: Bounce
+--- !u!114 &114917891148279686
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1256506194429496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e124b4e1c5865d94487c1aaa75649f28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212979706735723854
 SpriteRenderer:
   m_ObjectHideFlags: 1
