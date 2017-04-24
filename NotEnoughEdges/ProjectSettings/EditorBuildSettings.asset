@@ -12,5 +12,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Tips.unity
     guid: 4b665986de7efb8449a3fdcacc078b45
   - enabled: 1
-    path: Assets/Scenes/Actual Scene.unity
+    path: Assets/Scenes/Main Level.unity
     guid: def0d2edacfa0ca48a8fd1a9872fffbb
