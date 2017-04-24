@@ -33,8 +33,6 @@ public class StillHazard : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Debug.Log(playerRigidBody.velocity.y);
-
         if (theTarget.transform.position.y - transform.position.y < 3)
             isClose = true;
 

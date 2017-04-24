@@ -20,7 +20,9 @@ public class Projectile : MonoBehaviour {
         playerRigidBody = theTarget.GetComponent<Rigidbody2D>();
 
         transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position + new Vector3(0, playerRigidBody.velocity.y * 1.5f, 0));
-	}
+
+        Destroy(gameObject, 5);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -31,10 +33,7 @@ public class Projectile : MonoBehaviour {
     void OnCollisionEnter2D (Collision2D col)
     {
         if (col.gameObject.layer == LayerMask.NameToLayer("Drawing")) // Bounce back if hits drawn line
-        {
             transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 180);
-            Destroy(gameObject, 5);
-        }
         else
             Destroy(gameObject);
     }
