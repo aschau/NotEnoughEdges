@@ -45,35 +45,23 @@ public class StillHazard : MonoBehaviour {
 
             fireTimer += Time.deltaTime;
 
-            if (fireTimer > 1/fireRate) // Fire projectile
+            if (fireTimer > 1/fireRate && numOfFires == 0) // Fire projectile
             {
-                fireTimer = 0;
-                Fire();
+                ++numOfFires;
+                _animator.Play("Shots Part 1");
+                StartCoroutine(Fire());
             }
-        }
 
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position);
+            transform.rotation = Quaternion.LookRotation(Vector3.forward, theTarget.transform.position - transform.position);
+        }
     }
 
-    void Fire ()
-    {
-        if (numOfFires == 0)
-        {
-            ++numOfFires;
-            _animator.Play("1st Shot Part 1");
-            while (_animator.GetCurrentAnimatorStateInfo(1).IsName("1st Shot Part 1"));
-            Instantiate(projectile1, transform.position, Quaternion.identity);
-            _animator.Play("1st Shot Part 2");
-            while (_animator.GetCurrentAnimatorStateInfo(1).IsName("1st Shot Part 2"));
-            _animator.Play("After 1st Shot");
-        }
-        else if (numOfFires == 1)
-        {
-            ++numOfFires;
-            _animator.Play("2nd Shot Part 1");
-            while (_animator.GetCurrentAnimatorStateInfo(1).IsName("2nd Shot Part 1"));
-            Instantiate(projectile2, transform.position, Quaternion.identity);
-            _animator.Play("2nd Shot Part 2");
-        }
+    IEnumerator Fire()
+    { 
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length + 0.2f);
+        Instantiate(projectile1, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorStateInfo(0).length - 0.5f);
+        Instantiate(projectile2, transform.position, Quaternion.identity);
     }
 }
