@@ -29,7 +29,7 @@ public class GameOverMenu : Menu
         titleText.text = title;
 
         int edgeScore = MasterGameManager.instance.maxEdges;
-        float timeScore = MasterGameManager.instance.currentTime;
+        float timeScore = MasterGameManager.instance.bestTime;
         yourScore.text = string.Format("Your Score: \t {0} Edges \t {1}", edgeScore, Helper.formatTime(timeScore));
 
         List<KeyValuePair<int, float>> hiscoreList = MasterGameManager.instance.saveManager.hiscoreList;

@@ -13,11 +13,14 @@ public class UIManager : MonoBehaviour {
         MasterGameManager.instance.sceneManager.onSceneLoaded += OnSceneLoaded;
     }
 
-    void OnSceneLoaded()
+    void OnSceneLoaded(string sceneName)
     {
-        edgeScore = GameObject.Find("Edge Score").GetComponent<Text>();
-        shapeManager = GameObject.FindGameObjectWithTag("Player").GetComponent<ShapeManager>();
-        shapeManager.onEdgeChange += UpdateEdgeCount;
+        if (sceneName == "Main Level")
+        {
+            edgeScore = GameObject.Find("Edge Score").GetComponent<Text>();
+            shapeManager = GameObject.FindGameObjectWithTag("Player").GetComponent<ShapeManager>();
+            shapeManager.onEdgeChange += UpdateEdgeCount;
+        }
     }
 
     void UpdateEdgeCount(int changeDelta)

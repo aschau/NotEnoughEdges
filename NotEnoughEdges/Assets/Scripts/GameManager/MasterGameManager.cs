@@ -14,6 +14,7 @@ public class MasterGameManager : MonoBehaviour {
     public bool isGameOver { get; private set; }
     public float currentTime { get; private set; }
     public int maxEdges { get; private set; }
+    public float bestTime { get; private set; }
 
     PlayerHealth playerHealth;
     ShapeManager shapeManager;
@@ -36,19 +37,23 @@ public class MasterGameManager : MonoBehaviour {
         sceneManager.onSceneLoaded += Initialize;
     }
 
-    void Initialize()
+    void Initialize(string sceneName)
     {
         isGameOver = false;
-
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        shapeManager = playerHealth.GetComponent<ShapeManager>();
-        gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
-        //winMenu = GameObject.Find("Win Menu").GetComponent<WinMenu>();
-        shapeManager.onEdgeChange += UpdateMaxEdges;
-        playerHealth.onDeath += GameOver;
-        playerHealth.onWin += MaxEdge;
-        currentTime = 0f;
-        maxEdges = 3;
+        
+        if (sceneName == "Main Level")
+        {
+            GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+            playerHealth = playerGO.GetComponent<PlayerHealth>();
+            shapeManager = playerGO.GetComponent<ShapeManager>();
+            shapeManager.onEdgeChange += UpdateMaxEdges;
+            playerHealth.onDeath += GameOver;
+            playerHealth.onWin += MaxEdge;
+            gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
+            currentTime = 0f;
+            bestTime = 0f;
+            maxEdges = 3;
+        }
     }
 
     void Update()
@@ -62,7 +67,10 @@ public class MasterGameManager : MonoBehaviour {
     void UpdateMaxEdges(int amount)
     {
         if (shapeManager.edgeNum > maxEdges)
+        {
             maxEdges = shapeManager.edgeNum;
+            bestTime = currentTime;
+        }
     }
 
     void GameOver()

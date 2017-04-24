@@ -14,9 +14,28 @@ public class SaveManager : MonoBehaviour
         LoadScore();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Delete))
+        {
+            for (int i = 0; i < topScoreNum; i++)
+            {
+                string edgeKey = string.Format("@LeaderBoard: Edge Score #{0}", i);
+                string timeKey = string.Format("@LeaderBoard: Time Score #{0}", i);
+
+                if (PlayerPrefs.HasKey(edgeKey) && PlayerPrefs.HasKey(timeKey))
+                {
+                    PlayerPrefs.DeleteKey(edgeKey);
+                    PlayerPrefs.DeleteKey(timeKey);
+                    Debug.LogFormat("Deleting EdgeKey: {0} TimeKey{1}", edgeKey, timeKey);
+                }
+            }
+        }
+    }
+
     public void SaveScore()
     {
-        float timeScore = MasterGameManager.instance.currentTime;
+        float timeScore = MasterGameManager.instance.bestTime;
         int edgeScore = MasterGameManager.instance.maxEdges;
 
         KeyValuePair<int, float> newScore = new KeyValuePair<int, float>(edgeScore, timeScore);
@@ -48,13 +67,11 @@ public class SaveManager : MonoBehaviour
         {
             string edgeKey = string.Format("@LeaderBoard: Edge Score #{0}", i);
             string timeKey = string.Format("@LeaderBoard: Time Score #{0}", i);
-            int edgeScore = 0;
-            float timeScore = 0;
 
             if (PlayerPrefs.HasKey(edgeKey) && PlayerPrefs.HasKey(timeKey))
             {
-                edgeScore = PlayerPrefs.GetInt(edgeKey);
-                timeScore = PlayerPrefs.GetFloat(timeKey);
+                int edgeScore = PlayerPrefs.GetInt(edgeKey);
+                float timeScore = PlayerPrefs.GetFloat(timeKey);
                 hiscoreList.Add(new KeyValuePair<int, float>(edgeScore, timeScore));
                 //Debug.LogFormat("Loading Score #{0}: Edges={1}, Time={2}", i, edgeScore, timeScore);
             }

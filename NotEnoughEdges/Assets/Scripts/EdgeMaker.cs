@@ -10,37 +10,40 @@ public class EdgeMaker : MonoBehaviour
     
     void Update ()
     {
-        if (Input.GetMouseButtonDown(0)) //Start edge
+        if (!MasterGameManager.instance.pauseManager.isPaused && !MasterGameManager.instance.isGameOver)
         {
-            currentEdge = Instantiate(drawnEdgePrefab);
-            currentEdge.transform.SetParent(Camera.main.transform);
+            if (Input.GetMouseButtonDown(0)) //Start edge
+            {
+                currentEdge = Instantiate(drawnEdgePrefab);
+                currentEdge.transform.SetParent(Camera.main.transform);
 
-            edgeLine = currentEdge.GetComponent<LineRenderer>();
+                edgeLine = currentEdge.GetComponent<LineRenderer>();
 
-            currentPoints[0] = GetLocalMousePos();
-        }
-        if (Input.GetMouseButton(0)) //Update edge
-        {
-            currentPoints[1] = GetLocalMousePos();
-            
-            Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2,Vector3>(currentPoints, Vector2to3);
-            edgeLine.SetPositions(currentPointsV3);
-            edgeLine.sortingLayerName = "Foreground";
-        }
-        if (Input.GetMouseButtonUp(0)) //End edge
-        {
-            currentPoints[1] = GetLocalMousePos();
+                currentPoints[0] = GetLocalMousePos();
+            }
+            if (Input.GetMouseButton(0)) //Update edge
+            {
+                currentPoints[1] = GetLocalMousePos();
 
-            currentEdge.transform.SetParent(null);
-            currentEdge.points = currentPoints;
+                Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2, Vector3>(currentPoints, Vector2to3);
+                edgeLine.SetPositions(currentPointsV3);
+                edgeLine.sortingLayerName = "Foreground";
+            }
+            if (Input.GetMouseButtonUp(0)) //End edge
+            {
+                currentPoints[1] = GetLocalMousePos();
 
-            Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2, Vector3>(currentPoints, Vector2to3);
-            edgeLine.SetPositions(currentPointsV3);
-            edgeLine.sortingLayerName = "Foreground";
+                currentEdge.transform.SetParent(null);
+                currentEdge.points = currentPoints;
 
-            currentEdge.GetComponent<Selfdestruct>().StartDestruct();
-            currentEdge = null;
-            edgeLine = null;
+                Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2, Vector3>(currentPoints, Vector2to3);
+                edgeLine.SetPositions(currentPointsV3);
+                edgeLine.sortingLayerName = "Foreground";
+
+                currentEdge.GetComponent<Selfdestruct>().StartDestruct();
+                currentEdge = null;
+                edgeLine = null;
+            }
         }
     }
 

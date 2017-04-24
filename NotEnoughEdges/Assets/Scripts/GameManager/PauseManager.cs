@@ -16,10 +16,13 @@ public class PauseManager : MonoBehaviour {
         MasterGameManager.instance.sceneManager.onSceneLoaded += OnSceneLoaded;
     }
 
-    void OnSceneLoaded()
+    void OnSceneLoaded(string sceneName)
     {
-        pauseMenu = GameObject.Find("Pause Menu").GetComponent<PauseMenu>();
-        TogglePause(false);
+        if (sceneName == "Main Level")
+        {
+            pauseMenu = GameObject.Find("Pause Menu").GetComponent<PauseMenu>();
+            TogglePause(false);
+        }
     }
 
     void Update()

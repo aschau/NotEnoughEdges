@@ -10,6 +10,10 @@ public class PauseMenu : Menu {
     public void EnablePausePanel(bool active)
     {
         pausePanel.SetActive(active);
+        if (!active)
+        {
+            EnableSettingsPanel(false);
+        }
     }
 
     public void EnableSettingsPanel(bool active)
