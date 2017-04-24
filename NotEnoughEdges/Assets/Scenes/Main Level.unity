@@ -160,6 +160,50 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 18795a129a5378d418d5d8d50bc0ff64, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &70367754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 70367755}
+  - component: {fileID: 70367756}
+  m_Layer: 0
+  m_Name: EdgeMaker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &70367755
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 70367754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &70367756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 70367754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe4484c9656002d4393efe9d43936529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drawnEdgePrefab: {fileID: 68413864074042456, guid: 552e23bd75901c349bc6ffde4d07e6fc,
+    type: 2}
+  drawingColor: {r: 1, g: 0.5441177, b: 0.5441177, a: 0.5882353}
+  finalColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &201137730
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,24 +533,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cface47506c79e34283ba70f75674cab, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1403811164 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1287331598913284, guid: a584beec88eab784e85387cede1fbcda,
-    type: 2}
-  m_PrefabInternal: {fileID: 1636173256}
---- !u!114 &1403811167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1403811164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4484c9656002d4393efe9d43936529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawnEdgePrefab: {fileID: 68413864074042456, guid: 552e23bd75901c349bc6ffde4d07e6fc,
-    type: 2}
 --- !u!1001 &1464874955
 Prefab:
   m_ObjectHideFlags: 0

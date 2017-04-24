@@ -3,10 +3,15 @@
 public class EdgeMaker : MonoBehaviour
 {
     public EdgeCollider2D drawnEdgePrefab;
+    public Color drawingColor, finalColor;
     private EdgeCollider2D currentEdge;
     private LineRenderer edgeLine;
     private Vector2[] currentPoints = new Vector2[2];
 
+    void Awake()
+    {
+        Debug.Log(this.gameObject.name);
+    }
     
     void Update ()
     {
@@ -27,6 +32,8 @@ public class EdgeMaker : MonoBehaviour
 
                 Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2, Vector3>(currentPoints, Vector2to3);
                 edgeLine.SetPositions(currentPointsV3);
+
+                edgeLine.material.SetColor("_TintColor", drawingColor);
                 edgeLine.sortingLayerName = "Foreground";
             }
             if (Input.GetMouseButtonUp(0)) //End edge
@@ -38,6 +45,7 @@ public class EdgeMaker : MonoBehaviour
 
                 Vector3[] currentPointsV3 = System.Array.ConvertAll<Vector2, Vector3>(currentPoints, Vector2to3);
                 edgeLine.SetPositions(currentPointsV3);
+                edgeLine.material.SetColor("_TintColor", finalColor);
                 edgeLine.sortingLayerName = "Foreground";
 
                 currentEdge.GetComponent<Selfdestruct>().StartDestruct();
