@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerFollow : MonoBehaviour {
+    public bool followX = false;
     private GameObject player;
     private Vector3 distance;
     void Awake ()
@@ -18,6 +19,14 @@ public class PlayerFollow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        this.transform.position = new Vector3(this.transform.position.x, this.player.transform.position.y + this.distance.y, this.transform.position.z) ;
+        if (!followX)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, this.player.transform.position.y + this.distance.y, this.transform.position.z);
+        }
+
+        else
+        {
+            this.transform.position = new Vector3(this.player.transform.position.x + this.distance.x, this.player.transform.position.y + this.distance.y, this.transform.position.z);
+        }
 	}
 }
