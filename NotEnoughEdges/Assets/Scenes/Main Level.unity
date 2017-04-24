@@ -127,7 +127,7 @@ MonoBehaviour:
   terminalVelocity: 2.5
   deltaTerminal: 0.6
   deltaGravity: 0.2
-  wallHarmTime: 2
+  wallHarmTime: 20
   wallsHurt: 0
   hurtParticlePrefab: {fileID: 1920031359144524, guid: 519fac16bbc8b2640b2abdfab0346e1f,
     type: 2}

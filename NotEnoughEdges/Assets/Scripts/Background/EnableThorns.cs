@@ -11,7 +11,6 @@ public class EnableThorns : MonoBehaviour {
     {
         playerMovement = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         thorns = GameObject.FindGameObjectsWithTag("Thorns");
-        Debug.Log(thorns.Length);
     }
 
     // Use this for initialization
@@ -26,9 +25,34 @@ public class EnableThorns : MonoBehaviour {
     {
 		if (playerMovement.wallsHurt && !activated)
         {
-            foreach (GameObject g in thorns)
-                g.SetActive(true);
-            activated = true;
+            StartCoroutine(ActivateThorns(1f));
         }
 	}
+
+    IEnumerator ActivateThorns(float activateTime)
+    {
+        List<SpriteRenderer> spriteList = new List<SpriteRenderer>();
+
+        int i = 0;
+        foreach (GameObject g in thorns)
+        {
+            g.SetActive(true);
+            spriteList.Add(g.GetComponent<SpriteRenderer>());
+            spriteList[i].color = Color.clear;
+            i++;
+        }
+
+        activated = true;
+
+        for (float timeElapsed = 0; timeElapsed < activateTime; timeElapsed += Time.deltaTime)
+        {
+            float alpha = Mathf.Lerp(0, 1, timeElapsed);
+
+            foreach (SpriteRenderer sprite in spriteList)
+            {
+                sprite.color = new Color(1, 1, 1, alpha);
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
 }
