@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     public float terminalVelocity;
     public float deltaTerminal;
     public float deltaGravity;
+    public float wallHarmTime;
 
     private Rigidbody2D _rigidbody;
     private SpriteRenderer _spriteRenderer;
@@ -56,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
         if (invincibleTimer <= 0)
             _spriteRenderer.color = currentColor;
 
-        if (_shapemanager.edgeNum >= 8 && !wallsHurt)
+        if (MasterGameManager.instance.currentTime > wallHarmTime && !wallsHurt)
             wallsHurt = true;
     }
 
