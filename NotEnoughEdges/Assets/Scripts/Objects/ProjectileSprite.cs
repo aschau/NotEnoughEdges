@@ -13,12 +13,12 @@ public class ProjectileSprite : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-		
-	}
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, (_projectile.theTarget.transform.position - transform.position));
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, (transform.position - _projectile.theTarget.transform.position) - new Vector3(0, 0, transform.parent.rotation.z));
+        
 	}
 }
