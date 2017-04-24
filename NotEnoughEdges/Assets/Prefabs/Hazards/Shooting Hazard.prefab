@@ -220,7 +220,7 @@ MonoBehaviour:
     type: 2}
   projectile2: {fileID: 1233588138375404, guid: 3cdd56ddcc4d6ff4bb224d3a52c7c69b,
     type: 2}
-  stillTime: 3
+  stillTime: 2
   fireRate: 2
 --- !u!114 &114838640960644420
 MonoBehaviour:
