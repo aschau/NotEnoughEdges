@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4268169860101630}
   - component: {fileID: 82172881230498710}
+  - component: {fileID: 114298494902026574}
   m_Layer: 0
   m_Name: BGM Player
   m_TagString: Music
@@ -114,7 +115,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0a9a0da7fa7e5eb419e7e958e8dbba95, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -281,6 +282,21 @@ MonoBehaviour:
   pauseManager: {fileID: 114498423771518336}
   uiManager: {fileID: 114934913155824724}
   saveManager: {fileID: 114525241663446870}
+--- !u!114 &114298494902026574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495897848762638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497dacfacaf02974db706647e8927743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trackList:
+  - {fileID: 8300000, guid: 23002db834566cb45b2b27e880af0bb5, type: 3}
+  - {fileID: 8300000, guid: f75d5974f7fb4b04f8ab9cd54065eaf0, type: 3}
+  - {fileID: 8300000, guid: c2b7c9153a156924693531ca7c6dff4e, type: 3}
 --- !u!114 &114342962361792028
 MonoBehaviour:
   m_ObjectHideFlags: 1
