@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerWrapper : MonoBehaviour {
-    public delegate void OnSceneLoaded();
+    public delegate void OnSceneLoaded(string sceneName);
     public event OnSceneLoaded onSceneLoaded = delegate { };
 
     public string currentScene;
@@ -17,7 +17,7 @@ public class SceneManagerWrapper : MonoBehaviour {
     void SceneLoaded(Scene scene, LoadSceneMode mode)
     {
         currentScene = scene.name;
-        this.onSceneLoaded();
+        this.onSceneLoaded(scene.name);
     }
 
     public void LoadScene(string sceneName)

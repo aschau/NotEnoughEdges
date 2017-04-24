@@ -36,19 +36,22 @@ public class MasterGameManager : MonoBehaviour {
         sceneManager.onSceneLoaded += Initialize;
     }
 
-    void Initialize()
+    void Initialize(string sceneName)
     {
         isGameOver = false;
-
-        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>();
-        shapeManager = playerHealth.GetComponent<ShapeManager>();
-        gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
-        //winMenu = GameObject.Find("Win Menu").GetComponent<WinMenu>();
-        shapeManager.onEdgeChange += UpdateMaxEdges;
-        playerHealth.onDeath += GameOver;
-        playerHealth.onWin += MaxEdge;
-        currentTime = 0f;
-        maxEdges = 3;
+        
+        if (sceneName != "Main Menu")
+        {
+            GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
+            playerHealth = playerGO.GetComponent<PlayerHealth>();
+            shapeManager = playerGO.GetComponent<ShapeManager>();
+            shapeManager.onEdgeChange += UpdateMaxEdges;
+            playerHealth.onDeath += GameOver;
+            playerHealth.onWin += MaxEdge;
+            gameOverMenu = GameObject.Find("Game Over Menu").GetComponent<GameOverMenu>();
+            currentTime = 0f;
+            maxEdges = 3;
+        }
     }
 
     void Update()
