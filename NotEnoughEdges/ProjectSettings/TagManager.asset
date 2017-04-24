@@ -10,6 +10,7 @@ TagManager:
   - Sound
   - Ceiling
   - Wall
+  - Emmiter
   layers:
   - Default
   - TransparentFX

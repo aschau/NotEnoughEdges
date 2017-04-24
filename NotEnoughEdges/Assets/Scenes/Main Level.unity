@@ -337,6 +337,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 198334667243701262, guid: 59b742def6bc1cf4f966d28bed2e1198,
+        type: 2}
+      propertyPath: randomSeed
+      value: -1196299038
+      objectReference: {fileID: 0}
+    - target: {fileID: 198334667243701262, guid: 59b742def6bc1cf4f966d28bed2e1198,
+        type: 2}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1647856263767874, guid: 59b742def6bc1cf4f966d28bed2e1198, type: 2}
+      propertyPath: m_TagString
+      value: Emmiter
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 59b742def6bc1cf4f966d28bed2e1198, type: 2}
   m_IsPrefabParent: 0

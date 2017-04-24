@@ -8,6 +8,7 @@ public class ShapeManager : MonoBehaviour
     public float radius;
     private PolygonCollider2D col;
     private PlayerHealth playerHealth;
+    private ParticleSystem.EmissionModule playerEmmiter;
 
     private int winNum = 11;
     private int edges = 3; //Do not use outside of edgeNum
@@ -26,6 +27,11 @@ public class ShapeManager : MonoBehaviour
 
     public Sprite[] shapes;
     private SpriteRenderer currentShape;
+
+    void Awake()
+    {
+        playerEmmiter = GameObject.FindWithTag("Emmiter").GetComponent<ParticleSystem>().emission;
+    }
 
     void Start()
     {
@@ -48,6 +54,8 @@ public class ShapeManager : MonoBehaviour
             ChangeEdge(-1);
             //LoseEdge(1);
         }
+
+        playerEmmiter.rateOverTime = 100 * (edgeNum - 2)/8;
     }
 
     public void ChangeEdge(int amount)
