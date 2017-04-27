@@ -58,9 +58,17 @@ public class MasterGameManager : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            this.currentTime = 119;
+        }
         if (!pauseManager.isPaused)
         {
             this.currentTime += Time.deltaTime;
+            if (this.currentTime >= 120)
+            {
+                this.GameOver();
+            }
         }
     }
 
