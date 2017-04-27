@@ -25,7 +25,7 @@ public class BGMManager : MonoBehaviour {
             PlayRandomTrack();
         }
 
-        if (source.time >= source.clip.length)
+        if (source.time >= source.clip.length - 1)
         {
             PlayRandomTrack();
         }
