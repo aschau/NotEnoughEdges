@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour {
 
     void OnSceneLoaded(string sceneName)
     {
-        if (sceneName == "Main Level")
+        if (sceneName == "Easy Level" || sceneName == "Hard Level")
         {
             pauseMenu = GameObject.Find("Pause Menu").GetComponent<PauseMenu>();
             TogglePause(false);

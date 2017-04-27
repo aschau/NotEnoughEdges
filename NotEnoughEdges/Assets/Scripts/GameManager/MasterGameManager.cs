@@ -76,12 +76,14 @@ public class MasterGameManager : MonoBehaviour {
     void GameOver()
     {
         _EndGame();
+        //saveManager.difficultyList.Add(this.sceneManager.currentScene.Substring(0, 4));
         gameOverMenu.ShowGameOver();
     }
 
     void MaxEdge() //AKA win
     {
         _EndGame();
+        //saveManager.difficultyList.Add(this.sceneManager.currentScene.Substring(0, 4));
         gameOverMenu.ShowWin();
         //winMenu.EnableWinPanel(true);
     }
