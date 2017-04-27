@@ -12,5 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Tips.unity
     guid: 4b665986de7efb8449a3fdcacc078b45
   - enabled: 1
-    path: Assets/Scenes/Main Level.unity
+    path: Assets/Scenes/Easy Level.unity
+    guid: 799265d8abf6471438241e460c03d457
+  - enabled: 1
+    path: Assets/Scenes/Hard Level.unity
     guid: def0d2edacfa0ca48a8fd1a9872fffbb

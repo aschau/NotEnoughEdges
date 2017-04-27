@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     private ShapeManager _shapemanager;
     private float invincibleTimer = 0.0f;
     public static Color currentColor;
-    public bool wallsHurt = false;
+    public bool wallsHurt = false, disableWalls = false;
     //private Vector2 originalVelocity;
     //private float originalAngularVelocity;
 
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
         if (invincibleTimer <= 0)
             _spriteRenderer.color = currentColor;
 
-        if (MasterGameManager.instance.currentTime > wallHarmTime && !wallsHurt)
+        if (MasterGameManager.instance.currentTime > wallHarmTime && !wallsHurt && !disableWalls)
             wallsHurt = true;
     }
 
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour {
         if (col.gameObject.CompareTag("Ceiling"))
             _shapemanager.edgeNum = 0;
 
-        if (col.gameObject.CompareTag("Wall") && wallsHurt && invincibleTimer <= 0)
+        if (col.gameObject.CompareTag("Wall") && wallsHurt && !disableWalls && invincibleTimer <= 0)
         {
             getHurt(-1, col);
             //GameObject particles = Instantiate(hurtParticlePrefab, col.contacts[0].point, Quaternion.identity);

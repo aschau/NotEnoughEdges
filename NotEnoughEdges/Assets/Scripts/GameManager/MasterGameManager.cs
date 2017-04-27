@@ -41,7 +41,7 @@ public class MasterGameManager : MonoBehaviour {
     {
         isGameOver = false;
         
-        if (sceneName == "Main Level")
+        if (sceneName == "Easy Level" || sceneName == "Hard Level")
         {
             GameObject playerGO = GameObject.FindGameObjectWithTag("Player");
             playerHealth = playerGO.GetComponent<PlayerHealth>();
